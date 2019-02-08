@@ -138,6 +138,9 @@ typedef LPVOID (WINAPI *p_MapViewOfFile) (HANDLE, DWORD, DWORD, DWORD, SIZE_T);
 #define DEFAULTWADLOCATION2 "\\games\\srb2"
 #define DEFAULTSEARCHPATH1 "c:\\games"
 #define DEFAULTSEARCHPATH2 "\\games"
+#elif defined (__vita__)
+#define DEFAULTWADLOCATION1 "ux0:data/srb2vita"
+#define DEFAULTSEARCHPATH1 "ux0:data/srb2vita"
 #endif
 
 /**	\brief WAD file to look for
