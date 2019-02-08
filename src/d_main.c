@@ -169,6 +169,9 @@ INT32 debugload = 0;
 #ifdef _arch_dreamcast
 char srb2home[256] = "/cd";
 char srb2path[256] = "/cd";
+#elif defined(__vita__)
+char srb2home[256] = "ux0:data/srb2vita";
+char srb2path[256] = "ux0:data/srb2vita";
 #else
 char srb2home[256] = ".";
 char srb2path[256] = ".";
@@ -1435,6 +1438,9 @@ const char *D_Home(void)
 
 #ifdef ANDROID
 	return "/data/data/org.srb2/";
+#endif
+#ifdef __vita__
+	return "ux0:data/srb2vita";
 #endif
 #ifdef _arch_dreamcast
 	char VMUHOME[] = "HOME=/vmu/a1";

@@ -396,7 +396,11 @@ boolean FIL_CheckExtension(const char *in)
 // DEFAULTS
 //
 
+#ifdef __vita__
+char configfile[MAX_WADPATH] = "ux0:data/srb2vita/config.cfg";
+#else
 char configfile[MAX_WADPATH];
+#endif
 
 // ==========================================================================
 //                          CONFIGURATION
@@ -504,8 +508,18 @@ void M_SaveConfig(const char *filename)
 			CONS_Alert(CONS_NOTICE, M_GetText("Config filename must be .cfg\n"));
 			return;
 		}
-
+		
+#ifdef __vita__
+		char path[256];
+		if (strncmp(filename, "ux0", 3) == 0) {
+			strcpy(path, filename);
+		} else {
+			sprintf(path, "ux0:data/srb2vita/%s", filename);
+		}
+		f = fopen(path, "w");
+#else
 		f = fopen(filename, "w");
+#endif
 		// change it only if valid
 		if (f)
 			strcpy(configfile, filename);
@@ -522,8 +536,18 @@ void M_SaveConfig(const char *filename)
 			CONS_Alert(CONS_NOTICE, M_GetText("Config filename must be .cfg\n"));
 			return;
 		}
-
+		
+#ifdef __vita__
+		char path[256];
+		if (strncmp(configfile, "ux0", 3) == 0) {
+			strcpy(path, configfile);
+		} else {
+			sprintf(path, "ux0:data/srb2vita/%s", configfile);
+		}
+		f = fopen(path, "w");
+#else
 		f = fopen(configfile, "w");
+#endif
 		if (!f)
 		{
 			CONS_Alert(CONS_ERROR, M_GetText("Couldn't save game config file %s\n"), configfile);
