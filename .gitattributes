@@ -1,17 +1,18 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
-# Custom for Visual Studio
-*.cs     diff=csharp
-
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+# Windows EOL
+*.cs -crlf -whitespace
+*.mk -crlf -whitespace
+*.bat -crlf -whitespace
+*.dev -crlf -whitespace
+*.dsp -crlf -whitespace
+*.dsw -crlf -whitespace
+*.sln -crlf -whitespace
+*.resx -crlf -whitespace
+*.vcproj -crlf -whitespace
+*.csproj* -crlf -whitespace
+*.vcxproj* -crlf -whitespace
+*.manifest -crlf -whitespace
+# Patches
+/tools/SDL-1.2.14-gc/SDL-1.2.14-gc.patch -whitespace
+#Appveyor
+/appveyor.yml -crlf -whitespace
+# Other

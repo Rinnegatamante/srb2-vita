@@ -1,0 +1,876 @@
+../objs/PSVita/SDL/Release/am_map.o: am_map.c g_game.h doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h am_map.h g_input.h keys.h p_local.h m_bbox.h \
+ p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ p_slopes.h v_video.h i_video.h r_state.h r_data.h r_draw.h
+../objs/PSVita/SDL/Release/b_bot.o: b_bot.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ d_player.h p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h \
+ p_mobj.h doomdata.h d_ticcmd.h g_game.h doomstat.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h r_main.h r_data.h r_defs.h screen.h p_polyobj.h \
+ m_dllist.h r_state.h p_local.h m_bbox.h p_tick.h p_maputl.h p_spec.h \
+ b_bot.h lua_hook.h
+../objs/PSVita/SDL/Release/command.o: command.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ console.h d_event.h z_zone.h m_menu.h r_things.h r_plane.h screen.h \
+ r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h m_misc.h w_wad.h \
+ m_argv.h byteptr.h p_saveg.h g_game.h hu_stuff.h p_setup.h lua_script.h \
+ blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h
+../objs/PSVita/SDL/Release/comptime.o: comptime.c comptime.h
+../objs/PSVita/SDL/Release/console.o: console.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ console.h d_event.h command.h g_game.h doomstat.h doomdata.h d_player.h \
+ p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h \
+ d_ticcmd.h d_clisrv.h d_netcmd.h g_input.h keys.h hu_stuff.h w_wad.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h st_stuff.h s_sound.h v_video.h \
+ i_video.h z_zone.h i_system.h d_main.h m_menu.h r_things.h r_plane.h \
+ r_data.h r_state.h
+../objs/PSVita/SDL/Release/d_clisrv.o: d_clisrv.c i_net.h doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h command.h i_system.h d_ticcmd.h m_fixed.h d_event.h p_mobj.h \
+ tables.h d_think.h doomdata.h info.h sounds.h s_sound.h i_video.h \
+ d_net.h d_main.h w_wad.h g_game.h doomstat.h d_player.h p_pspr.h \
+ d_clisrv.h d_netcmd.h hu_stuff.h r_defs.h screen.h p_polyobj.h \
+ m_dllist.h keys.h m_menu.h r_things.h r_plane.h r_data.h r_state.h \
+ console.h d_netfil.h byteptr.h p_saveg.h z_zone.h p_local.h m_bbox.h \
+ p_tick.h p_maputl.h p_spec.h m_misc.h am_map.h m_random.h mserv.h \
+ y_inter.h r_local.h r_main.h r_bsp.h r_segs.h r_sky.h r_draw.h m_argv.h \
+ p_setup.h lzf.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lua.h blua/lauxlib.h lua_hook.h
+../objs/PSVita/SDL/Release/d_main.o: d_main.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ am_map.h d_event.h console.h command.h d_net.h f_finale.h g_game.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h hu_stuff.h \
+ w_wad.h r_defs.h screen.h p_polyobj.h m_dllist.h i_sound.h i_system.h \
+ s_sound.h i_video.h m_argv.h m_menu.h r_things.h r_plane.h r_data.h \
+ r_state.h m_misc.h p_setup.h p_saveg.h r_main.h r_local.h m_bbox.h \
+ r_bsp.h r_segs.h r_sky.h r_draw.h st_stuff.h v_video.h z_zone.h d_main.h \
+ d_netfil.h m_cheat.h y_inter.h p_local.h p_tick.h p_maputl.h p_spec.h \
+ mserv.h dehacked.h m_cond.h fastcmp.h keys.h config.h.in lua_script.h \
+ blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h
+../objs/PSVita/SDL/Release/d_net.o: d_net.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h i_net.h i_system.h s_sound.h m_argv.h d_net.h \
+ w_wad.h d_netfil.h z_zone.h i_tcp.h
+../objs/PSVita/SDL/Release/d_netcmd.o: d_netcmd.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ console.h d_event.h command.h i_system.h d_ticcmd.h m_fixed.h p_mobj.h \
+ tables.h d_think.h doomdata.h info.h sounds.h s_sound.h g_game.h \
+ doomstat.h d_player.h p_pspr.h d_clisrv.h d_netcmd.h hu_stuff.h w_wad.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h g_input.h keys.h m_menu.h \
+ r_things.h r_plane.h r_data.h r_state.h r_local.h m_bbox.h r_main.h \
+ r_bsp.h r_segs.h r_sky.h r_draw.h p_local.h p_tick.h p_maputl.h p_spec.h \
+ p_setup.h i_sound.h m_misc.h am_map.h byteptr.h d_netfil.h m_cheat.h \
+ v_video.h d_main.h m_random.h f_finale.h mserv.h md5.h z_zone.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_hook.h m_cond.h m_anigif.h
+../objs/PSVita/SDL/Release/d_netfil.o: d_netfil.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ d_main.h d_event.h w_wad.h g_game.h i_net.h i_system.h s_sound.h \
+ m_argv.h d_net.h d_netfil.h z_zone.h byteptr.h p_setup.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h m_misc.h m_menu.h r_things.h r_plane.h \
+ r_data.h r_state.h md5.h filesrch.h
+../objs/PSVita/SDL/Release/dehacked.o: dehacked.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ d_main.h d_event.h w_wad.h g_game.h doomstat.h doomdata.h d_player.h \
+ p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h \
+ d_ticcmd.h d_clisrv.h d_netcmd.h command.h m_argv.h z_zone.h m_menu.h \
+ r_things.h r_plane.h screen.h r_data.h r_defs.h p_polyobj.h m_dllist.h \
+ r_state.h m_misc.h f_finale.h dehacked.h st_stuff.h i_system.h s_sound.h \
+ p_local.h m_bbox.h p_tick.h p_maputl.h p_spec.h p_setup.h r_sky.h \
+ fastcmp.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lua.h blua/lauxlib.h lua_hook.h m_cond.h v_video.h lua_libs.h
+../objs/PSVita/SDL/Release/f_finale.o: f_finale.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ d_main.h d_event.h w_wad.h f_finale.h g_game.h hu_stuff.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h r_local.h m_bbox.h r_main.h r_data.h \
+ r_state.h r_bsp.h r_segs.h r_plane.h r_sky.h r_things.h r_draw.h \
+ s_sound.h i_video.h v_video.h z_zone.h i_system.h m_menu.h dehacked.h \
+ g_input.h keys.h console.h m_random.h y_inter.h m_cond.h
+../objs/PSVita/SDL/Release/f_wipe.o: f_wipe.c f_finale.h doomtype.h d_event.h g_state.h i_video.h \
+ v_video.h doomdef.h m_swap.h endian.h r_defs.h m_fixed.h d_think.h \
+ p_mobj.h tables.h doomdata.h info.h sounds.h screen.h command.h \
+ p_polyobj.h m_dllist.h r_draw.h p_pspr.h w_wad.h z_zone.h i_system.h \
+ d_ticcmd.h s_sound.h m_menu.h r_things.h r_plane.h r_data.h r_state.h \
+ d_player.h console.h d_main.h m_misc.h
+../objs/PSVita/SDL/Release/filesrch.o: filesrch.c filesrch.h doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h d_netfil.h w_wad.h m_misc.h tables.h m_fixed.h d_event.h
+../objs/PSVita/SDL/Release/g_game.o: g_game.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ console.h d_event.h command.h d_main.h w_wad.h d_player.h p_pspr.h \
+ m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h doomdata.h \
+ d_ticcmd.h f_finale.h p_setup.h doomstat.h d_clisrv.h d_netcmd.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h p_saveg.h i_system.h s_sound.h \
+ am_map.h m_random.h p_local.h m_bbox.h p_tick.h p_maputl.h p_spec.h \
+ r_draw.h r_main.h r_data.h r_state.h g_game.h m_cheat.h m_misc.h \
+ m_menu.h r_things.h r_plane.h m_argv.h hu_stuff.h st_stuff.h z_zone.h \
+ i_video.h byteptr.h i_joy.h g_input.h keys.h r_local.h r_bsp.h r_segs.h \
+ r_sky.h y_inter.h v_video.h dehacked.h lua_hook.h b_bot.h m_cond.h md5.h
+../objs/PSVita/SDL/Release/g_input.o: g_input.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ g_input.h d_event.h keys.h hu_stuff.h w_wad.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h d_net.h console.h
+../objs/PSVita/SDL/Release/hu_stuff.o: hu_stuff.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ byteptr.h hu_stuff.h d_event.h w_wad.h r_defs.h m_fixed.h d_think.h \
+ p_mobj.h tables.h doomdata.h info.h sounds.h screen.h command.h \
+ p_polyobj.h m_dllist.h m_menu.h r_things.h r_plane.h r_data.h r_state.h \
+ d_player.h p_pspr.h d_ticcmd.h m_cond.h d_clisrv.h d_netcmd.h g_game.h \
+ doomstat.h g_input.h keys.h i_video.h i_system.h s_sound.h st_stuff.h \
+ r_local.h m_bbox.h r_main.h r_bsp.h r_segs.h r_sky.h r_draw.h v_video.h \
+ z_zone.h console.h am_map.h d_main.h p_local.h p_tick.h p_maputl.h \
+ p_spec.h lua_hud.h lua_hook.h
+../objs/PSVita/SDL/Release/i_addrinfo.o: i_addrinfo.c i_addrinfo.h
+../objs/PSVita/SDL/Release/i_tcp.o: i_tcp.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ i_system.h d_ticcmd.h m_fixed.h d_event.h p_mobj.h tables.h d_think.h \
+ doomdata.h info.h sounds.h s_sound.h command.h i_net.h d_net.h \
+ d_netfil.h w_wad.h i_tcp.h m_argv.h doomstat.h d_player.h p_pspr.h \
+ d_clisrv.h d_netcmd.h i_addrinfo.h i_addrinfo.c
+../objs/PSVita/SDL/Release/info.o: info.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ m_misc.h d_event.h w_wad.h z_zone.h lzf.h
+../objs/PSVita/SDL/Release/lua_baselib.o: lua_baselib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h p_local.h command.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h m_bbox.h \
+ p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ p_setup.h doomstat.h d_clisrv.h d_netcmd.h z_zone.h r_main.h r_data.h \
+ r_state.h r_things.h r_plane.h m_random.h s_sound.h g_game.h d_event.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_consolelib.o: lua_consolelib.c doomdef.h doomtype.h g_state.h \
+ m_swap.h endian.h fastcmp.h p_local.h command.h d_player.h p_pspr.h \
+ m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h doomdata.h \
+ d_ticcmd.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h g_game.h doomstat.h d_clisrv.h d_netcmd.h d_event.h \
+ byteptr.h z_zone.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lua.h blua/lauxlib.h lua_libs.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_hooklib.o: lua_hooklib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h g_game.h d_event.h r_things.h r_plane.h screen.h r_data.h \
+ r_defs.h p_polyobj.h m_dllist.h r_state.h b_bot.h z_zone.h lua_script.h \
+ blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h \
+ lua_libs.h lua_hook.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_hudlib.o: lua_hudlib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h \
+ info.h sounds.h screen.h command.h p_polyobj.h m_dllist.h r_local.h \
+ m_bbox.h r_main.h d_player.h p_pspr.h d_ticcmd.h r_data.h r_state.h \
+ r_bsp.h r_segs.h r_plane.h r_sky.h r_things.h r_draw.h st_stuff.h \
+ d_event.h g_game.h doomstat.h d_clisrv.h d_netcmd.h i_video.h p_local.h \
+ p_tick.h p_maputl.h p_spec.h v_video.h w_wad.h z_zone.h lua_script.h \
+ blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h \
+ lua_libs.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_infolib.o: lua_infolib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h fastcmp.h info.h d_think.h sounds.h m_fixed.h dehacked.h \
+ p_mobj.h tables.h doomdata.h p_local.h command.h d_player.h p_pspr.h \
+ d_ticcmd.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h z_zone.h lua_script.h blua/lua.h blua/luaconf.h \
+ blua/lualib.h blua/lua.h blua/lauxlib.h lua_libs.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_maplib.o: lua_maplib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h r_state.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h r_data.h r_defs.h \
+ screen.h command.h p_polyobj.h m_dllist.h p_local.h m_bbox.h p_tick.h \
+ p_maputl.h p_spec.h p_setup.h doomstat.h d_clisrv.h d_netcmd.h z_zone.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h lua_hud.h dehacked.h fastcmp.h
+../objs/PSVita/SDL/Release/lua_mathlib.o: lua_mathlib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h tables.h m_fixed.h p_local.h command.h d_player.h p_pspr.h \
+ info.h d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h m_bbox.h \
+ p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ doomstat.h d_clisrv.h d_netcmd.h lua_script.h blua/lua.h blua/luaconf.h \
+ blua/lualib.h blua/lua.h blua/lauxlib.h lua_libs.h
+../objs/PSVita/SDL/Release/lua_mobjlib.o: lua_mobjlib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h fastcmp.h r_things.h sounds.h r_plane.h screen.h command.h \
+ r_data.h r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h \
+ info.h p_polyobj.h m_dllist.h r_state.h d_player.h p_pspr.h d_ticcmd.h \
+ p_local.h m_bbox.h p_tick.h p_maputl.h p_spec.h g_game.h doomstat.h \
+ d_clisrv.h d_netcmd.h d_event.h p_setup.h lua_script.h blua/lua.h \
+ blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h lua_libs.h \
+ lua_hud.h
+../objs/PSVita/SDL/Release/lua_playerlib.o: lua_playerlib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h fastcmp.h p_mobj.h tables.h m_fixed.h d_think.h doomdata.h \
+ info.h sounds.h d_player.h p_pspr.h d_ticcmd.h g_game.h doomstat.h \
+ d_clisrv.h d_netcmd.h command.h d_event.h p_local.h m_bbox.h p_tick.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h lua_hud.h
+../objs/PSVita/SDL/Release/lua_script.o: lua_script.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h fastcmp.h dehacked.h m_fixed.h z_zone.h w_wad.h p_setup.h \
+ doomdata.h doomstat.h d_player.h p_pspr.h tables.h info.h d_think.h \
+ sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h r_state.h r_data.h g_game.h d_event.h \
+ byteptr.h p_saveg.h p_local.h m_bbox.h p_tick.h p_maputl.h p_spec.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h lua_hook.h
+../objs/PSVita/SDL/Release/lua_skinlib.o: lua_skinlib.c doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h fastcmp.h r_things.h sounds.h r_plane.h screen.h command.h \
+ r_data.h r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h \
+ info.h p_polyobj.h m_dllist.h r_state.h d_player.h p_pspr.h d_ticcmd.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h
+../objs/PSVita/SDL/Release/lua_thinkerlib.o: lua_thinkerlib.c doomdef.h doomtype.h g_state.h \
+ m_swap.h endian.h p_local.h command.h d_player.h p_pspr.h m_fixed.h \
+ tables.h info.h d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h \
+ m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h \
+ p_spec.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h lua_libs.h
+../objs/PSVita/SDL/Release/lzf.o: lzf.c lzf.h doomdef.h doomtype.h g_state.h m_swap.h endian.h
+../objs/PSVita/SDL/Release/m_aatree.o: m_aatree.c m_aatree.h doomtype.h z_zone.h
+../objs/PSVita/SDL/Release/m_anigif.o: m_anigif.c m_anigif.h doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h command.h screen.h d_main.h d_event.h w_wad.h z_zone.h \
+ v_video.h r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h \
+ info.h sounds.h p_polyobj.h m_dllist.h i_video.h byteptr.h
+../objs/PSVita/SDL/Release/m_argv.o: m_argv.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ command.h m_argv.h
+../objs/PSVita/SDL/Release/m_bbox.o: m_bbox.c doomtype.h m_bbox.h m_fixed.h
+../objs/PSVita/SDL/Release/m_cheat.o: m_cheat.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_input.h d_event.h keys.h command.h g_game.h doomstat.h doomdata.h \
+ d_player.h p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h \
+ p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h s_sound.h r_local.h screen.h \
+ m_bbox.h r_main.h r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h \
+ r_bsp.h r_segs.h r_plane.h r_sky.h r_things.h r_draw.h p_local.h \
+ p_tick.h p_maputl.h p_spec.h p_setup.h d_net.h m_cheat.h m_menu.h \
+ m_random.h m_misc.h w_wad.h hu_stuff.h m_cond.h v_video.h z_zone.h \
+ p_slopes.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lua.h blua/lauxlib.h lua_hook.h
+../objs/PSVita/SDL/Release/m_cond.o: m_cond.c m_cond.h doomdef.h doomtype.h g_state.h m_swap.h \
+ endian.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h z_zone.h hu_stuff.h d_event.h w_wad.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h v_video.h g_game.h r_things.h r_plane.h r_data.h \
+ r_state.h r_draw.h
+../objs/PSVita/SDL/Release/m_fixed.o: m_fixed.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ m_fixed.h
+../objs/PSVita/SDL/Release/m_menu.o: m_menu.c m_menu.h d_event.h doomtype.h g_state.h command.h \
+ doomdef.h m_swap.h endian.h r_things.h sounds.h r_plane.h screen.h \
+ r_data.h r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h \
+ info.h p_polyobj.h m_dllist.h r_state.h d_player.h p_pspr.h d_ticcmd.h \
+ d_main.h w_wad.h d_netcmd.h console.h r_local.h m_bbox.h r_main.h \
+ r_bsp.h r_segs.h r_sky.h r_draw.h hu_stuff.h g_game.h doomstat.h \
+ d_clisrv.h g_input.h keys.h m_argv.h s_sound.h i_system.h v_video.h \
+ i_video.h z_zone.h p_local.h p_tick.h p_maputl.h p_spec.h p_setup.h \
+ f_finale.h d_net.h mserv.h m_misc.h m_anigif.h byteptr.h st_stuff.h \
+ i_sound.h m_cond.h m_random.h
+../objs/PSVita/SDL/Release/m_misc.o: m_misc.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h m_misc.h w_wad.h hu_stuff.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h v_video.h z_zone.h g_input.h keys.h i_video.h \
+ d_main.h m_argv.h i_system.h s_sound.h m_anigif.h m_menu.h r_things.h \
+ r_plane.h r_data.h r_state.h sdl/hwsym_sdl.h
+../objs/PSVita/SDL/Release/m_queue.o: m_queue.c z_zone.h doomtype.h m_queue.h m_misc.h tables.h \
+ m_fixed.h d_event.h g_state.h w_wad.h
+../objs/PSVita/SDL/Release/m_random.o: m_random.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ m_random.h
+../objs/PSVita/SDL/Release/md5.o: md5.c md5.h endian.h
+../objs/PSVita/SDL/Release/mserv.o: mserv.c doomstat.h doomdata.h doomtype.h doomdef.h g_state.h \
+ m_swap.h endian.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ i_net.h console.h d_event.h mserv.h d_net.h i_tcp.h i_system.h s_sound.h \
+ byteptr.h m_menu.h r_things.h r_plane.h screen.h r_data.h r_defs.h \
+ p_polyobj.h m_dllist.h r_state.h m_argv.h m_misc.h w_wad.h i_addrinfo.h
+../objs/PSVita/SDL/Release/p_ceilng.o: p_ceilng.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ p_local.h command.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h m_bbox.h p_tick.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h r_main.h \
+ r_data.h r_state.h s_sound.h z_zone.h d_netcmd.h
+../objs/PSVita/SDL/Release/p_enemy.o: p_enemy.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h p_local.h m_bbox.h p_tick.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h p_maputl.h p_spec.h r_main.h r_data.h r_state.h \
+ s_sound.h m_random.h m_misc.h w_wad.h r_things.h r_plane.h i_video.h \
+ lua_hook.h
+../objs/PSVita/SDL/Release/p_floor.o: p_floor.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ p_local.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h r_state.h r_data.h s_sound.h z_zone.h g_game.h \
+ d_event.h r_main.h
+../objs/PSVita/SDL/Release/p_inter.o: p_inter.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ i_system.h d_ticcmd.h m_fixed.h d_event.h p_mobj.h tables.h d_think.h \
+ doomdata.h info.h sounds.h s_sound.h command.h am_map.h g_game.h \
+ doomstat.h d_player.h p_pspr.h d_clisrv.h d_netcmd.h m_random.h \
+ p_local.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h r_main.h r_data.h r_state.h st_stuff.h hu_stuff.h \
+ w_wad.h lua_hook.h m_cond.h m_cheat.h m_misc.h v_video.h
+../objs/PSVita/SDL/Release/p_lights.o: p_lights.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ p_local.h command.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h doomdata.h d_ticcmd.h m_bbox.h p_tick.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h r_state.h \
+ r_data.h z_zone.h m_random.h d_netcmd.h
+../objs/PSVita/SDL/Release/p_map.o: p_map.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h m_bbox.h m_random.h p_local.h p_tick.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h p_setup.h r_state.h \
+ r_data.h r_main.h r_sky.h s_sound.h w_wad.h r_splats.h p_slopes.h \
+ z_zone.h lua_hook.h
+../objs/PSVita/SDL/Release/p_maputl.o: p_maputl.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ p_local.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h r_main.h r_data.h r_state.h p_slopes.h z_zone.h
+../objs/PSVita/SDL/Release/p_mobj.o: p_mobj.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h g_input.h keys.h st_stuff.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h hu_stuff.h w_wad.h p_local.h m_bbox.h p_tick.h \
+ p_maputl.h p_spec.h p_setup.h r_main.h r_data.h r_state.h r_things.h \
+ r_plane.h r_sky.h r_splats.h s_sound.h z_zone.h m_random.h m_cheat.h \
+ m_misc.h i_video.h lua_hook.h b_bot.h p_slopes.h
+../objs/PSVita/SDL/Release/p_polyobj.o: p_polyobj.c z_zone.h doomtype.h doomstat.h doomdata.h \
+ doomdef.h g_state.h m_swap.h endian.h d_player.h p_pspr.h m_fixed.h \
+ tables.h info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h \
+ d_netcmd.h command.h g_game.h d_event.h m_bbox.h m_queue.h p_maputl.h \
+ r_defs.h screen.h p_polyobj.h m_dllist.h p_setup.h p_tick.h p_local.h \
+ p_spec.h r_main.h r_data.h r_state.h
+../objs/PSVita/SDL/Release/p_saveg.o: p_saveg.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ byteptr.h d_main.h d_event.h w_wad.h doomstat.h doomdata.h d_player.h \
+ p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h \
+ d_ticcmd.h d_clisrv.h d_netcmd.h command.h g_game.h m_random.h m_misc.h \
+ p_local.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h p_setup.h p_saveg.h r_things.h r_plane.h r_data.h \
+ r_state.h y_inter.h z_zone.h r_main.h r_sky.h lua_script.h blua/lua.h \
+ blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h p_slopes.h
+../objs/PSVita/SDL/Release/p_setup.o: p_setup.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ d_main.h d_event.h w_wad.h byteptr.h g_game.h doomstat.h doomdata.h \
+ d_player.h p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h \
+ p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h p_local.h m_bbox.h \
+ p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ p_setup.h p_saveg.h i_sound.h i_video.h r_sky.h i_system.h s_sound.h \
+ r_data.h r_state.h r_things.h r_plane.h r_draw.h st_stuff.h z_zone.h \
+ r_splats.h hu_stuff.h console.h m_misc.h m_random.h dehacked.h r_main.h \
+ m_cond.h m_argv.h v_video.h f_finale.h md5.h lua_script.h blua/lua.h \
+ blua/luaconf.h blua/lualib.h blua/lua.h blua/lauxlib.h lua_hook.h \
+ p_slopes.h
+../objs/PSVita/SDL/Release/p_sight.o: p_sight.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ p_local.h m_bbox.h p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h \
+ p_maputl.h p_spec.h r_main.h r_data.h r_state.h
+../objs/PSVita/SDL/Release/p_slopes.o: p_slopes.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ r_defs.h m_fixed.h d_think.h p_mobj.h tables.h doomdata.h info.h \
+ sounds.h screen.h command.h p_polyobj.h m_dllist.h r_state.h d_player.h \
+ p_pspr.h d_ticcmd.h r_data.h m_bbox.h z_zone.h p_local.h p_tick.h \
+ p_maputl.h p_spec.h p_slopes.h p_setup.h doomstat.h d_clisrv.h \
+ d_netcmd.h r_main.h w_wad.h
+../objs/PSVita/SDL/Release/p_spec.o: p_spec.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h p_local.h m_bbox.h p_tick.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h p_maputl.h p_spec.h p_setup.h r_data.h r_state.h \
+ m_random.h i_system.h s_sound.h w_wad.h z_zone.h r_main.h r_sky.h \
+ p_slopes.h hu_stuff.h m_misc.h m_cond.h lua_hook.h
+../objs/PSVita/SDL/Release/p_telept.o: p_telept.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h p_local.h m_bbox.h p_tick.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h p_maputl.h p_spec.h r_state.h r_data.h s_sound.h \
+ r_main.h
+../objs/PSVita/SDL/Release/p_tick.o: p_tick.c doomstat.h doomdata.h doomtype.h doomdef.h g_state.h \
+ m_swap.h endian.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ g_game.h d_event.h p_local.h m_bbox.h p_tick.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h p_maputl.h p_spec.h z_zone.h s_sound.h st_stuff.h \
+ m_random.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lua.h blua/lauxlib.h lua_hook.h m_cheat.h
+../objs/PSVita/SDL/Release/p_user.o: p_user.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ i_system.h d_ticcmd.h m_fixed.h d_event.h p_mobj.h tables.h d_think.h \
+ doomdata.h info.h sounds.h s_sound.h command.h d_net.h g_game.h \
+ doomstat.h d_player.h p_pspr.h d_clisrv.h d_netcmd.h p_local.h m_bbox.h \
+ p_tick.h r_defs.h screen.h p_polyobj.h m_dllist.h p_maputl.h p_spec.h \
+ r_main.h r_data.h r_state.h r_things.h r_plane.h r_sky.h p_setup.h \
+ m_random.h m_misc.h w_wad.h i_video.h p_slopes.h r_splats.h z_zone.h \
+ hu_stuff.h st_stuff.h lua_script.h blua/lua.h blua/luaconf.h \
+ blua/lualib.h blua/lua.h blua/lauxlib.h lua_hook.h b_bot.h m_cheat.h
+../objs/PSVita/SDL/Release/r_bsp.o: r_bsp.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h r_local.h screen.h m_bbox.h r_main.h r_data.h \
+ r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h r_segs.h r_plane.h \
+ r_sky.h r_things.h r_draw.h r_splats.h p_local.h p_tick.h p_maputl.h \
+ p_spec.h p_slopes.h z_zone.h
+../objs/PSVita/SDL/Release/r_data.o: r_data.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h i_video.h r_local.h screen.h m_bbox.h r_main.h \
+ r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h r_segs.h \
+ r_plane.h r_sky.h r_things.h r_draw.h p_local.h p_tick.h p_maputl.h \
+ p_spec.h m_misc.h w_wad.h z_zone.h p_setup.h v_video.h dehacked.h
+../objs/PSVita/SDL/Release/r_draw.o: r_draw.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ r_local.h screen.h m_bbox.h r_main.h r_data.h r_defs.h p_polyobj.h \
+ m_dllist.h r_state.h r_bsp.h r_segs.h r_plane.h r_sky.h r_things.h \
+ r_draw.h st_stuff.h d_event.h i_video.h v_video.h m_misc.h w_wad.h \
+ z_zone.h console.h r_draw8.c
+../objs/PSVita/SDL/Release/r_draw16.o: r_draw16.c
+../objs/PSVita/SDL/Release/r_draw8.o: r_draw8.c
+../objs/PSVita/SDL/Release/r_main.o: r_main.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h g_input.h keys.h r_local.h screen.h m_bbox.h \
+ r_main.h r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h \
+ r_segs.h r_plane.h r_sky.h r_things.h r_draw.h r_splats.h st_stuff.h \
+ p_local.h p_tick.h p_maputl.h p_spec.h i_video.h m_menu.h am_map.h \
+ d_main.h w_wad.h v_video.h z_zone.h m_random.h
+../objs/PSVita/SDL/Release/r_plane.o: r_plane.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ console.h d_event.h command.h g_game.h doomstat.h doomdata.h d_player.h \
+ p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h \
+ d_ticcmd.h d_clisrv.h d_netcmd.h r_data.h r_defs.h screen.h p_polyobj.h \
+ m_dllist.h r_state.h r_local.h m_bbox.h r_main.h r_bsp.h r_segs.h \
+ r_plane.h r_sky.h r_things.h r_draw.h r_splats.h v_video.h w_wad.h \
+ z_zone.h p_tick.h p_setup.h p_slopes.h
+../objs/PSVita/SDL/Release/r_segs.o: r_segs.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ r_local.h tables.h m_fixed.h screen.h command.h m_bbox.h r_main.h \
+ d_player.h p_pspr.h info.h d_think.h sounds.h p_mobj.h doomdata.h \
+ d_ticcmd.h r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h \
+ r_segs.h r_plane.h r_sky.h r_things.h r_draw.h r_splats.h w_wad.h \
+ z_zone.h d_netcmd.h m_misc.h d_event.h p_local.h p_tick.h p_maputl.h \
+ p_spec.h p_slopes.h console.h
+../objs/PSVita/SDL/Release/r_sky.o: r_sky.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ r_sky.h r_local.h screen.h m_bbox.h r_main.h r_data.h r_defs.h \
+ p_polyobj.h m_dllist.h r_state.h r_bsp.h r_segs.h r_plane.h r_things.h \
+ r_draw.h w_wad.h z_zone.h p_maputl.h
+../objs/PSVita/SDL/Release/r_splats.o: r_splats.c r_draw.h r_defs.h m_fixed.h doomtype.h d_think.h \
+ p_mobj.h tables.h doomdata.h doomdef.h g_state.h m_swap.h endian.h \
+ info.h sounds.h screen.h command.h p_polyobj.h m_dllist.h r_main.h \
+ d_player.h p_pspr.h d_ticcmd.h r_data.h r_state.h r_plane.h r_splats.h \
+ w_wad.h z_zone.h d_netcmd.h
+../objs/PSVita/SDL/Release/r_things.o: r_things.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ console.h d_event.h command.h g_game.h doomstat.h doomdata.h d_player.h \
+ p_pspr.h m_fixed.h tables.h info.h d_think.h sounds.h p_mobj.h \
+ d_ticcmd.h d_clisrv.h d_netcmd.h r_local.h screen.h m_bbox.h r_main.h \
+ r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h r_segs.h \
+ r_plane.h r_sky.h r_things.h r_draw.h st_stuff.h w_wad.h z_zone.h \
+ m_misc.h i_video.h p_tick.h p_local.h p_maputl.h p_spec.h p_slopes.h \
+ dehacked.h d_netfil.h m_cheat.h
+../objs/PSVita/SDL/Release/s_sound.o: s_sound.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ g_game.h d_event.h m_argv.h r_main.h r_data.h r_defs.h screen.h \
+ p_polyobj.h m_dllist.h r_state.h r_things.h r_plane.h i_system.h \
+ s_sound.h i_sound.h w_wad.h z_zone.h d_main.h r_sky.h p_local.h m_bbox.h \
+ p_tick.h p_maputl.h p_spec.h
+../objs/PSVita/SDL/Release/screen.o: screen.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ screen.h console.h d_event.h am_map.h i_system.h s_sound.h i_video.h \
+ r_local.h m_bbox.h r_main.h r_data.h r_defs.h p_polyobj.h m_dllist.h \
+ r_state.h r_bsp.h r_segs.h r_plane.h r_sky.h r_things.h r_draw.h \
+ m_argv.h m_misc.h w_wad.h v_video.h st_stuff.h hu_stuff.h z_zone.h \
+ d_main.h f_finale.h
+../objs/PSVita/SDL/Release/sounds.o: sounds.c doomtype.h i_sound.h doomdef.h g_state.h m_swap.h \
+ endian.h sounds.h command.h r_defs.h m_fixed.h d_think.h p_mobj.h \
+ tables.h doomdata.h info.h screen.h p_polyobj.h m_dllist.h r_things.h \
+ r_plane.h r_data.h r_state.h d_player.h p_pspr.h d_ticcmd.h z_zone.h \
+ w_wad.h lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h
+../objs/PSVita/SDL/Release/st_stuff.o: st_stuff.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ g_game.h doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h \
+ info.h d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h \
+ command.h d_event.h r_local.h screen.h m_bbox.h r_main.h r_data.h \
+ r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h r_segs.h r_plane.h \
+ r_sky.h r_things.h r_draw.h p_local.h p_tick.h p_maputl.h p_spec.h \
+ f_finale.h st_stuff.h i_video.h v_video.h z_zone.h hu_stuff.h w_wad.h \
+ s_sound.h i_system.h m_menu.h m_cheat.h p_setup.h m_random.h m_cond.h \
+ lua_hud.h
+../objs/PSVita/SDL/Release/string.o: string.c doomdef.h doomtype.h g_state.h m_swap.h endian.h
+../objs/PSVita/SDL/Release/t_facon.o: t_facon.c
+../objs/PSVita/SDL/Release/t_fsin.o: t_fsin.c
+../objs/PSVita/SDL/Release/t_ftan.o: t_ftan.c
+../objs/PSVita/SDL/Release/t_tan2a.o: t_tan2a.c
+../objs/PSVita/SDL/Release/tables.o: tables.c tables.h m_fixed.h doomtype.h t_ftan.c t_fsin.c \
+ t_tan2a.c t_facon.c
+../objs/PSVita/SDL/Release/v_video.o: v_video.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ r_local.h tables.h m_fixed.h screen.h command.h m_bbox.h r_main.h \
+ d_player.h p_pspr.h info.h d_think.h sounds.h p_mobj.h doomdata.h \
+ d_ticcmd.h r_data.h r_defs.h p_polyobj.h m_dllist.h r_state.h r_bsp.h \
+ r_segs.h r_plane.h r_sky.h r_things.h r_draw.h v_video.h hu_stuff.h \
+ d_event.h w_wad.h console.h i_video.h z_zone.h m_misc.h m_random.h \
+ doomstat.h d_clisrv.h d_netcmd.h p_local.h p_tick.h p_maputl.h p_spec.h
+../objs/PSVita/SDL/Release/w_wad.o: w_wad.c lzf.h doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ w_wad.h z_zone.h fastcmp.h i_video.h d_netfil.h dehacked.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h i_system.h d_event.h s_sound.h md5.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h m_misc.h
+../objs/PSVita/SDL/Release/y_inter.o: y_inter.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ d_main.h d_event.h w_wad.h f_finale.h g_game.h hu_stuff.h r_defs.h \
+ screen.h p_polyobj.h m_dllist.h i_net.h i_video.h p_tick.h r_things.h \
+ r_plane.h r_data.h r_state.h s_sound.h st_stuff.h v_video.h y_inter.h \
+ z_zone.h m_menu.h m_misc.h i_system.h p_setup.h r_local.h m_bbox.h \
+ r_main.h r_bsp.h r_segs.h r_sky.h r_draw.h p_local.h p_maputl.h p_spec.h \
+ m_cond.h
+../objs/PSVita/SDL/Release/z_zone.o: z_zone.c doomdef.h doomtype.h g_state.h m_swap.h endian.h \
+ doomstat.h doomdata.h d_player.h p_pspr.h m_fixed.h tables.h info.h \
+ d_think.h sounds.h p_mobj.h d_ticcmd.h d_clisrv.h d_netcmd.h command.h \
+ i_system.h d_event.h s_sound.h i_video.h z_zone.h m_misc.h w_wad.h \
+ lua_script.h blua/lua.h blua/luaconf.h blua/lualib.h blua/lua.h \
+ blua/lauxlib.h
+../objs/PSVita/SDL/Release/IMG_xpm.o: sdl/IMG_xpm.c
+../objs/PSVita/SDL/Release/dosstr.o: sdl/dosstr.c sdl/../doomtype.h
+../objs/PSVita/SDL/Release/endtxt.o: sdl/endtxt.c sdl/../doomdef.h sdl/../doomtype.h \
+ sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h sdl/../w_wad.h \
+ sdl/../z_zone.h sdl/endtxt.h
+../objs/PSVita/SDL/Release/hwsym_sdl.o: sdl/hwsym_sdl.c sdl/hwsym_sdl.h sdl/../doomdef.h \
+ sdl/../doomtype.h sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_main.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_stdinc.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_platform.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/begin_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/close_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config_vita.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_assert.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_atomic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_audio.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_error.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mutex.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_thread.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rwops.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_clipboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_events.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_video.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_pixels.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rect.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_surface.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_blendmode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keyboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keycode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_scancode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mouse.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_joystick.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gamecontroller.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_quit.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gesture.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_touch.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_filesystem.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_haptic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_hints.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_loadso.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_log.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_messagebox.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_power.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_render.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_shape.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_system.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_timer.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_version.h
+../objs/PSVita/SDL/Release/i_cdmus.o: sdl/i_cdmus.c sdl/../command.h sdl/../doomdef.h \
+ sdl/../doomtype.h sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h \
+ sdl/../s_sound.h sdl/../sounds.h sdl/../m_fixed.h sdl/../command.h \
+ sdl/../tables.h sdl/../i_sound.h
+../objs/PSVita/SDL/Release/i_main.o: sdl/i_main.c sdl/../doomdef.h sdl/../doomtype.h \
+ sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h sdl/../m_argv.h \
+ sdl/../d_main.h sdl/../d_event.h sdl/../w_wad.h sdl/../i_system.h \
+ sdl/../d_ticcmd.h sdl/../m_fixed.h sdl/../p_mobj.h sdl/../tables.h \
+ sdl/../d_think.h sdl/../doomdata.h sdl/../doomdef.h sdl/../info.h \
+ sdl/../sounds.h sdl/../s_sound.h sdl/../command.h
+../objs/PSVita/SDL/Release/i_net.o: sdl/i_net.c sdl/../doomdef.h sdl/../doomtype.h sdl/../g_state.h \
+ sdl/../m_swap.h sdl/../endian.h sdl/../i_system.h sdl/../d_ticcmd.h \
+ sdl/../m_fixed.h sdl/../d_event.h sdl/../p_mobj.h sdl/../tables.h \
+ sdl/../d_think.h sdl/../doomdata.h sdl/../doomdef.h sdl/../info.h \
+ sdl/../sounds.h sdl/../s_sound.h sdl/../command.h sdl/../d_event.h \
+ sdl/../d_net.h sdl/../m_argv.h sdl/../doomstat.h sdl/../d_player.h \
+ sdl/../p_pspr.h sdl/../d_clisrv.h sdl/../d_netcmd.h sdl/../i_net.h \
+ sdl/../z_zone.h sdl/../i_tcp.h
+../objs/PSVita/SDL/Release/i_system.o: sdl/i_system.c sdl/../config.h.in \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_main.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_stdinc.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_platform.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/begin_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/close_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config_vita.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_assert.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_atomic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_audio.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_error.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mutex.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_thread.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rwops.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_clipboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_events.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_video.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_pixels.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rect.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_surface.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_blendmode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keyboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keycode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_scancode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mouse.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_joystick.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gamecontroller.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_quit.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gesture.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_touch.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_filesystem.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_haptic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_hints.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_loadso.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_log.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_messagebox.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_power.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_render.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_shape.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_system.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_timer.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_version.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h sdl/../doomdef.h \
+ sdl/../doomtype.h sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h \
+ sdl/../m_misc.h sdl/../tables.h sdl/../m_fixed.h sdl/../d_event.h \
+ sdl/../w_wad.h sdl/../i_video.h sdl/../i_sound.h sdl/../doomdef.h \
+ sdl/../sounds.h sdl/../command.h sdl/../i_system.h sdl/../d_ticcmd.h \
+ sdl/../p_mobj.h sdl/../d_think.h sdl/../doomdata.h sdl/../info.h \
+ sdl/../s_sound.h sdl/../screen.h sdl/../d_net.h sdl/../g_game.h \
+ sdl/../doomstat.h sdl/../d_player.h sdl/../p_pspr.h sdl/../d_clisrv.h \
+ sdl/../d_netcmd.h sdl/../filesrch.h sdl/../d_netfil.h sdl/endtxt.h \
+ sdl/sdlmain.h sdl/../m_fixed.h sdl/../i_joy.h sdl/../g_input.h \
+ sdl/../keys.h sdl/../m_argv.h sdl/../d_main.h
+../objs/PSVita/SDL/Release/i_ttf.o: sdl/i_ttf.c
+../objs/PSVita/SDL/Release/i_video.o: sdl/i_video.c C:/vitasdk/arm-vita-eabi/include/SDL2/SDL.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_main.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_stdinc.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_platform.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/begin_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/close_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config_vita.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_assert.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_atomic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_audio.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_error.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mutex.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_thread.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rwops.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_clipboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_events.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_video.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_pixels.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rect.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_surface.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_blendmode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keyboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keycode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_scancode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mouse.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_joystick.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gamecontroller.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_quit.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gesture.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_touch.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_filesystem.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_haptic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_hints.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_loadso.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_log.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_messagebox.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_power.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_render.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_shape.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_system.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_timer.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_version.h sdl/../doomdef.h \
+ sdl/../doomtype.h sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h \
+ sdl/../doomstat.h sdl/../doomdata.h sdl/../doomdef.h sdl/../d_player.h \
+ sdl/../p_pspr.h sdl/../m_fixed.h sdl/../tables.h sdl/../info.h \
+ sdl/../d_think.h sdl/../sounds.h sdl/../p_mobj.h sdl/../d_ticcmd.h \
+ sdl/../d_clisrv.h sdl/../d_netcmd.h sdl/../command.h sdl/../i_system.h \
+ sdl/../d_event.h sdl/../s_sound.h sdl/../v_video.h sdl/../r_defs.h \
+ sdl/../screen.h sdl/../p_polyobj.h sdl/../m_dllist.h sdl/../m_argv.h \
+ sdl/../m_menu.h sdl/../r_things.h sdl/../r_plane.h sdl/../r_data.h \
+ sdl/../r_state.h sdl/../d_main.h sdl/../w_wad.h sdl/../s_sound.h \
+ sdl/../i_sound.h sdl/../i_joy.h sdl/../g_input.h sdl/../keys.h \
+ sdl/../st_stuff.h sdl/../g_game.h sdl/../doomstat.h sdl/../i_video.h \
+ sdl/../console.h sdl/../command.h sdl/sdlmain.h sdl/../m_fixed.h
+../objs/PSVita/SDL/Release/mixer_sound.o: sdl/mixer_sound.c sdl/../doomdef.h sdl/../doomtype.h \
+ sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h sdl/../sounds.h \
+ sdl/../s_sound.h sdl/../sounds.h sdl/../m_fixed.h sdl/../command.h \
+ sdl/../doomdef.h sdl/../tables.h sdl/../i_sound.h sdl/../w_wad.h \
+ sdl/../z_zone.h sdl/../byteptr.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_main.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_stdinc.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_platform.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/begin_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/close_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config_vita.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_assert.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_atomic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_audio.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_error.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mutex.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_thread.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rwops.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_clipboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_events.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_video.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_pixels.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rect.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_surface.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_blendmode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keyboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keycode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_scancode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mouse.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_joystick.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gamecontroller.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_quit.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gesture.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_touch.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_filesystem.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_haptic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_hints.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_loadso.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_log.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_messagebox.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_power.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_render.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_shape.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_system.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_timer.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_version.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mixer.h
+../objs/PSVita/SDL/Release/ogl_sdl.o: sdl/ogl_sdl.c C:/vitasdk/arm-vita-eabi/include/SDL2/SDL.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_main.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_stdinc.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_platform.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/begin_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/close_code.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_config_vita.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_assert.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_atomic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_audio.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_error.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_endian.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mutex.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_thread.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rwops.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_clipboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_cpuinfo.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_events.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_video.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_pixels.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_rect.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_surface.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_blendmode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keyboard.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_keycode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_scancode.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_mouse.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_joystick.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gamecontroller.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_quit.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_gesture.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_touch.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_filesystem.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_haptic.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_hints.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_loadso.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_log.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_messagebox.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_power.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_render.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_shape.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_system.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_timer.h \
+ C:/vitasdk/arm-vita-eabi/include/SDL2/SDL_version.h sdl/sdlmain.h \
+ sdl/../m_fixed.h sdl/../doomtype.h sdl/../doomdef.h sdl/../g_state.h \
+ sdl/../m_swap.h sdl/../endian.h
+../objs/PSVita/SDL/Release/sdl_sound.o: sdl/sdl_sound.c sdl/../doomdef.h sdl/../doomtype.h \
+ sdl/../g_state.h sdl/../m_swap.h sdl/../endian.h
+../objs/PSVita/SDL/Release/lapi.o: blua/lapi.c blua/lua.h blua/luaconf.h blua/lapi.h blua/lobject.h \
+ blua/llimits.h blua/ldebug.h blua/lstate.h blua/ltm.h blua/lzio.h \
+ blua/lmem.h blua/ldo.h blua/lfunc.h blua/lgc.h blua/lstring.h \
+ blua/ltable.h blua/lundump.h blua/lvm.h
+../objs/PSVita/SDL/Release/lauxlib.o: blua/lauxlib.c blua/lua.h blua/luaconf.h blua/lauxlib.h
+../objs/PSVita/SDL/Release/lbaselib.o: blua/lbaselib.c blua/lua.h blua/luaconf.h blua/lauxlib.h \
+ blua/lualib.h
+../objs/PSVita/SDL/Release/lcode.o: blua/lcode.c blua/lua.h blua/luaconf.h blua/lcode.h blua/llex.h \
+ blua/lobject.h blua/llimits.h blua/lzio.h blua/lmem.h blua/lopcodes.h \
+ blua/lparser.h blua/ldebug.h blua/lstate.h blua/ltm.h blua/ldo.h \
+ blua/lgc.h blua/ltable.h
+../objs/PSVita/SDL/Release/ldebug.o: blua/ldebug.c blua/lua.h blua/luaconf.h blua/lapi.h \
+ blua/lobject.h blua/llimits.h blua/lcode.h blua/llex.h blua/lzio.h \
+ blua/lmem.h blua/lopcodes.h blua/lparser.h blua/ldebug.h blua/lstate.h \
+ blua/ltm.h blua/ldo.h blua/lfunc.h blua/lstring.h blua/lgc.h \
+ blua/ltable.h blua/lvm.h
+../objs/PSVita/SDL/Release/ldo.o: blua/ldo.c blua/lua.h blua/luaconf.h blua/ldebug.h blua/lstate.h \
+ blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/ldo.h blua/lfunc.h blua/lgc.h blua/lopcodes.h blua/lparser.h \
+ blua/lstring.h blua/ltable.h blua/lundump.h blua/lvm.h
+../objs/PSVita/SDL/Release/ldump.o: blua/ldump.c blua/lua.h blua/luaconf.h blua/lobject.h \
+ blua/llimits.h blua/lstate.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/lundump.h
+../objs/PSVita/SDL/Release/lfunc.o: blua/lfunc.c blua/lua.h blua/luaconf.h blua/lfunc.h \
+ blua/lobject.h blua/llimits.h blua/lgc.h blua/lmem.h blua/lstate.h \
+ blua/ltm.h blua/lzio.h
+../objs/PSVita/SDL/Release/lgc.o: blua/lgc.c blua/lua.h blua/luaconf.h blua/ldebug.h blua/lstate.h \
+ blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/ldo.h blua/lfunc.h blua/lgc.h blua/lstring.h blua/ltable.h
+../objs/PSVita/SDL/Release/linit.o: blua/linit.c blua/lua.h blua/luaconf.h blua/lualib.h \
+ blua/lauxlib.h
+../objs/PSVita/SDL/Release/llex.o: blua/llex.c blua/lua.h blua/luaconf.h blua/ldo.h blua/lobject.h \
+ blua/llimits.h blua/lstate.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/llex.h blua/lparser.h blua/lstring.h blua/lgc.h blua/ltable.h
+../objs/PSVita/SDL/Release/lmem.o: blua/lmem.c blua/lua.h blua/luaconf.h blua/ldebug.h blua/lstate.h \
+ blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/ldo.h
+../objs/PSVita/SDL/Release/lobject.o: blua/lobject.c blua/lua.h blua/luaconf.h blua/ldo.h \
+ blua/lobject.h blua/llimits.h blua/lstate.h blua/ltm.h blua/lzio.h \
+ blua/lmem.h blua/lstring.h blua/lgc.h blua/lvm.h
+../objs/PSVita/SDL/Release/lopcodes.o: blua/lopcodes.c blua/lopcodes.h blua/llimits.h blua/lua.h \
+ blua/luaconf.h
+../objs/PSVita/SDL/Release/lparser.o: blua/lparser.c blua/lua.h blua/luaconf.h blua/lcode.h \
+ blua/llex.h blua/lobject.h blua/llimits.h blua/lzio.h blua/lmem.h \
+ blua/lopcodes.h blua/lparser.h blua/ldebug.h blua/lstate.h blua/ltm.h \
+ blua/ldo.h blua/lfunc.h blua/lstring.h blua/lgc.h blua/ltable.h
+../objs/PSVita/SDL/Release/lstate.o: blua/lstate.c blua/lua.h blua/luaconf.h blua/ldebug.h \
+ blua/lstate.h blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h \
+ blua/lmem.h blua/ldo.h blua/lfunc.h blua/lgc.h blua/llex.h \
+ blua/lstring.h blua/ltable.h
+../objs/PSVita/SDL/Release/lstring.o: blua/lstring.c blua/lua.h blua/luaconf.h blua/lmem.h \
+ blua/llimits.h blua/lobject.h blua/lstate.h blua/ltm.h blua/lzio.h \
+ blua/lstring.h blua/lgc.h
+../objs/PSVita/SDL/Release/lstrlib.o: blua/lstrlib.c blua/lua.h blua/luaconf.h blua/lauxlib.h \
+ blua/lualib.h
+../objs/PSVita/SDL/Release/ltable.o: blua/ltable.c blua/lua.h blua/luaconf.h blua/ldebug.h \
+ blua/lstate.h blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h \
+ blua/lmem.h blua/ldo.h blua/lgc.h blua/ltable.h
+../objs/PSVita/SDL/Release/ltablib.o: blua/ltablib.c blua/lua.h blua/luaconf.h blua/lauxlib.h \
+ blua/lualib.h
+../objs/PSVita/SDL/Release/ltm.o: blua/ltm.c blua/lua.h blua/luaconf.h blua/lobject.h blua/llimits.h \
+ blua/lstate.h blua/ltm.h blua/lzio.h blua/lmem.h blua/lstring.h \
+ blua/lgc.h blua/ltable.h
+../objs/PSVita/SDL/Release/lundump.o: blua/lundump.c blua/lua.h blua/luaconf.h blua/ldebug.h \
+ blua/lstate.h blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h \
+ blua/lmem.h blua/ldo.h blua/lfunc.h blua/lstring.h blua/lgc.h \
+ blua/lundump.h
+../objs/PSVita/SDL/Release/lvm.o: blua/lvm.c blua/lua.h blua/luaconf.h blua/ldebug.h blua/lstate.h \
+ blua/lobject.h blua/llimits.h blua/ltm.h blua/lzio.h blua/lmem.h \
+ blua/ldo.h blua/lfunc.h blua/lgc.h blua/lopcodes.h blua/lstring.h \
+ blua/ltable.h blua/lvm.h
+../objs/PSVita/SDL/Release/lzio.o: blua/lzio.c blua/lua.h blua/luaconf.h blua/llimits.h blua/lmem.h \
+ blua/lstate.h blua/lobject.h blua/ltm.h blua/lzio.h
