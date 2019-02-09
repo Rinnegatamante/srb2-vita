@@ -517,6 +517,7 @@ void I_ShutdownDigMusic(void)
 
 boolean I_StartDigSong(const char *musicname, boolean looping)
 {
+	
 	char *data;
 	size_t len;
 	lumpnum_t lumpnum = W_CheckNumForName(va("O_%s",musicname));
@@ -526,8 +527,10 @@ boolean I_StartDigSong(const char *musicname, boolean looping)
 	I_Assert(!gme);
 #endif
 
-	if (lumpnum == LUMPERROR)
+	if (lumpnum == LUMPERROR) {
+		CONS_Printf("I_StartDigSong: invalid lump num\n");
 		return false;
+	}
 	midimode = false;
 
 	data = (char *)W_CacheLumpNum(lumpnum, PU_MUSIC);
@@ -678,8 +681,9 @@ boolean I_StartDigSong(const char *musicname, boolean looping)
 		CONS_Alert(CONS_ERROR, "Mix_PlayMusic: %s\n", Mix_GetError());
 		return true;
 	}
+#ifndef __vita__
 	Mix_VolumeMusic((UINT32)music_volume*128/31);
-
+#endif
 	if (loop_point != 0.0f)
 		Mix_HookMusicFinished(music_loop);
 	return true;
@@ -709,9 +713,12 @@ void I_StopDigSong(void)
 void I_SetDigMusicVolume(UINT8 volume)
 {
 	music_volume = volume;
+
 	if (midimode || !music)
 		return;
+#ifndef __vita__
 	Mix_VolumeMusic((UINT32)volume*128/31);
+#endif
 }
 
 boolean I_SetSongSpeed(float speed)
@@ -789,7 +796,9 @@ void I_SetMIDIMusicVolume(UINT8 volume)
 
 	if (!midimode || !music)
 		return;
+#ifndef __vita__
 	Mix_VolumeMusic((UINT32)midi_volume*128/31);
+#endif
 }
 
 INT32 I_RegisterSong(void *data, size_t len)
@@ -814,8 +823,9 @@ boolean I_PlaySong(INT32 handle, boolean looping)
 		CONS_Alert(CONS_ERROR, "Mix_PlayMusic: %s\n", Mix_GetError());
 		return false;
 	}
-
+#ifndef __vita__
 	Mix_VolumeMusic((UINT32)midi_volume*128/31);
+#endif
 	return true;
 }
 
