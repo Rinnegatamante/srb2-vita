@@ -275,6 +275,7 @@ static void SDLSetMode(INT32 width, INT32 height, SDL_bool fullscreen)
 	if (rendermode == render_soft)
 	{
 #ifdef __vita__
+		vita2d_texture_set_alloc_memblock_type(SCE_KERNEL_MEMBLOCK_TYPE_USER_RW);
 		gxm_texture = vita2d_create_empty_texture_format(width, height, SCE_GXM_TEXTURE_FORMAT_P8_ABGR);
 #else
 		SDL_RenderClear(renderer);
