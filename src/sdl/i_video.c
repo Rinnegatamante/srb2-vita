@@ -275,10 +275,6 @@ static void SDLSetMode(INT32 width, INT32 height, SDL_bool fullscreen)
 	if (rendermode == render_soft)
 	{
 #ifdef __vita__
-		scePowerSetArmClockFrequency(444);
-		scePowerSetBusClockFrequency(222);
-		scePowerSetGpuClockFrequency(222);
-		scePowerSetGpuXbarClockFrequency(166);
 		gxm_texture = vita2d_create_empty_texture_format(width, height, SCE_GXM_TEXTURE_FORMAT_P8_ABGR);
 #else
 		SDL_RenderClear(renderer);

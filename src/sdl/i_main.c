@@ -26,6 +26,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef __vita
+#include <vitasdk.h>
+#endif
+
 #ifdef HAVE_SDL
 
 #ifdef HAVE_TTF
@@ -112,6 +116,13 @@ int main(int argc, char **argv)
 	const char *logdir = NULL;
 	myargc = argc;
 	myargv = argv; /// \todo pull out path to exe from this string
+
+#ifdef __vita__
+	scePowerSetArmClockFrequency(444);
+	scePowerSetBusClockFrequency(222);
+	scePowerSetGpuClockFrequency(222);
+	scePowerSetGpuXbarClockFrequency(166);
+#endif
 
 #ifdef HAVE_TTF
 #ifdef _WIN32
