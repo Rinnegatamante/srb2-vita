@@ -77,6 +77,7 @@
 #ifdef __vita__
 #include <vitasdk.h>
 #include <vita2d.h>
+#include <vitaGL.h>
 vita2d_texture *gxm_texture = NULL;
 #endif
 
@@ -1462,6 +1463,17 @@ static void Impl_VideoSetupBuffer(void)
 	}
 }
 
+#ifdef __vita__
+#define MAX_INDICES 4096
+uint16_t *indices;
+uint8_t *gColorBuffer;
+uint8_t *gColorBufferPtr;
+float *gVertexBuffer;
+float *gVertexBufferPtr;
+float *gTexCoordBuffer;
+float *gTexCoordBufferPtr;
+#endif
+
 void I_StartupGraphics(void)
 {
 	if (dedicated)
@@ -1553,10 +1565,28 @@ void I_StartupGraphics(void)
 		if (!HWD.pfnInit(I_Error)) // let load the OpenGL library
 		{
 			rendermode = render_soft;
-		} else {
-			vglInit();
-			vglStartRendering();
 		}
+#ifdef __vita__
+		else {
+			vglInitExtended(0x100000, 960, 544, 0x1000000, SCE_GXM_MULTISAMPLE_4X);
+			glEnableClientState(GL_VERTEX_ARRAY);
+			vglUseVram(GL_TRUE);
+			vglMapHeapMem();
+			gVertexBufferPtr = (float*)malloc(0x400000);
+			gColorBufferPtr = (uint8_t*)malloc(0x200000);
+			gTexCoordBufferPtr = (float*)malloc(0x200000);
+			gVertexBuffer = gVertexBufferPtr;
+			gColorBuffer = gColorBufferPtr;
+			gTexCoordBuffer = gTexCoordBufferPtr;
+			vglStartRendering();
+			int i;
+			indices = (uint16_t*)malloc(sizeof(uint16_t*)*MAX_INDICES);
+			for (i=0;i<MAX_INDICES;i++){
+				indices[i] = i;
+			}
+			vglIndexPointerMapped(indices);
+		}
+#endif
 	}
 #endif
 

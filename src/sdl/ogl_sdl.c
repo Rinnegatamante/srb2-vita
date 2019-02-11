@@ -52,6 +52,16 @@
 #include <sys/stat.h>
 #endif
 
+#ifdef __vita__
+uint16_t *indices;
+uint8_t *gColorBuffer;
+uint8_t *gColorBufferPtr;
+float *gVertexBuffer;
+float *gVertexBufferPtr;
+float *gTexCoordBuffer;
+float *gTexCoordBufferPtr;
+#endif
+
 #ifdef USE_WGL_SWAP
 PFNWGLEXTSWAPCONTROLPROC wglSwapIntervalEXT = NULL;
 #else
@@ -229,6 +239,10 @@ void OglSdlFinishUpdate(boolean waitvbl)
 #else
 	vglStopRendering();
 	vglStartRendering();
+	vglIndexPointerMapped(indices);
+	gVertexBuffer = gVertexBufferPtr;
+	gColorBuffer = gColorBufferPtr;
+	gTexCoordBuffer = gTexCoordBufferPtr;
 #endif
 	SetModelView(realwidth, realheight);
 	SetStates();

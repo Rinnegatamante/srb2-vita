@@ -19,6 +19,13 @@
 
 #ifdef __vita__
 #include <vitaGL.h>
+extern uint16_t *indices;
+extern uint8_t *gColorBuffer;
+extern uint8_t *gColorBufferPtr;
+extern float *gVertexBuffer;
+extern float *gVertexBufferPtr;
+extern float *gTexCoordBuffer;
+extern float *gTexCoordBufferPtr;
 #endif
 
 #if defined (_WIN32)
@@ -827,6 +834,9 @@ void Flush(void)
 // -----------------+
 INT32 isExtAvailable(const char *extension, const GLubyte *start)
 {
+#ifdef __vita__
+	return 0;
+#endif
 	GLubyte         *where, *terminator;
 
 	if (!extension || !start) return 0;
@@ -999,7 +1009,7 @@ EXPORT void HWRAPI(Draw2DLine) (F2DCoord * v1,
 	GLRGBAFloat c;
 
 	// DBG_Printf ("DrawLine() (%f %f %f) %d\n", v1->x, -v1->y, -v1->z, v1->argb);
-#ifdef MINI_GL_COMPATIBILITY
+#if defined(MINI_GL_COMPATIBILITY) && !defined(__vita__)
 	GLfloat px1, px2, px3, px4;
 	GLfloat py1, py2, py3, py4;
 	GLfloat dx, dy;
@@ -1011,10 +1021,12 @@ EXPORT void HWRAPI(Draw2DLine) (F2DCoord * v1,
 
 	pglDisable(GL_TEXTURE_2D);
 
+#ifndef __vita__
 	c.red   = byte2float[Color.s.red];
 	c.green = byte2float[Color.s.green];
 	c.blue  = byte2float[Color.s.blue];
 	c.alpha = byte2float[Color.s.alpha];
+#endif
 
 #ifndef MINI_GL_COMPATIBILITY
 	pglColor4fv(&c.red);    // is in RGBA float format
@@ -1022,6 +1034,23 @@ EXPORT void HWRAPI(Draw2DLine) (F2DCoord * v1,
 		pglVertex3f(v1->x, -v1->y, 1.0f);
 		pglVertex3f(v2->x, -v2->y, 1.0f);
 	pglEnd();
+#elif defined(__vita__)
+	glEnableClientState(GL_COLOR_ARRAY);
+	gVertexBuffer[0] = v1->x;
+	gVertexBuffer[1] = -v1->y;
+	gVertexBuffer[2] = gVertexBuffer[5] = 1.0f;
+	gVertexBuffer[3] = v2->x;
+	gVertexBuffer[4] = -v2->y;
+	gColorBuffer[0] = gColorBuffer[4] = Color.s.red;
+	gColorBuffer[1] = gColorBuffer[5] = Color.s.green;
+	gColorBuffer[2] = gColorBuffer[6] = Color.s.blue;
+	gColorBuffer[3] = gColorBuffer[7] = Color.s.alpha;
+	vglVertexPointerMapped(gVertexBuffer);
+	vglColorPointerMapped(GL_UNSIGNED_BYTE, gColorBuffer);
+	vglDrawObjects(GL_LINES, 2, GL_TRUE);
+	glDisableClientState(GL_COLOR_ARRAY);
+	gVertexBuffer += 6;
+	gColorBuffer += 8;
 #else
 	if (v2->x != v1->x)
 		angle = (float)atan((v2->y-v1->y)/(v2->x-v1->x));
@@ -1659,7 +1688,26 @@ EXPORT void HWRAPI(DrawPolygon) (FSurfaceInfo  *pSurf,
 #endif
 	if (PolyFlags & PF_MD2)
 		return;
-
+	
+#ifdef __vita__
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	float *texcoords = gTexCoordBuffer;
+	float *vertices = gVertexBuffer;
+	for (i = 0; i < iNumPts; i++)
+	{
+		gTexCoordBuffer[0] = pOutVerts[i].sow;
+		gTexCoordBuffer[1] = pOutVerts[i].tow;
+		gVertexBuffer[0] = pOutVerts[i].x;
+		gVertexBuffer[1] = pOutVerts[i].y;
+		gVertexBuffer[2] = pOutVerts[i].z;
+		gTexCoordBuffer += 2;
+		gVertexBuffer += 3;
+	}
+	vglVertexPointerMapped(vertices);
+	vglTexCoordPointerMapped(texcoords);
+	vglDrawObjects(GL_TRIANGLE_FAN, iNumPts, GL_TRUE);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+#else
 	pglBegin(GL_TRIANGLE_FAN);
 	for (i = 0; i < iNumPts; i++)
 	{
@@ -1669,6 +1717,7 @@ EXPORT void HWRAPI(DrawPolygon) (FSurfaceInfo  *pSurf,
 		//pglVertex3f(pOutVerts[i].x, pOutVerts[i].y, -pOutVerts[i].z);
 	}
 	pglEnd();
+#endif
 
 	if (PolyFlags & PF_RemoveYWrap)
 		pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -1950,38 +1999,60 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 	}
 
 	val = *gl_cmd_buffer++;
-
+#ifdef __vita__
+	GLenum primitive = GL_TRIANGLE_STRIP;
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	float *vertices = gVertexBuffer;
+	float *texcoords = gTexCoordBuffer;
+#endif
 	while (val != 0)
 	{
 		if (val < 0)
 		{
+#ifdef __vita__
+			primitive = GL_TRIANGLE_FAN;
+#else
 			pglBegin(GL_TRIANGLE_FAN);
+#endif
 			count = -val;
 		}
 		else
 		{
+#ifndef __vita__
 			pglBegin(GL_TRIANGLE_STRIP);
+#endif
 			count = val;
 		}
-
+#ifdef __vita__
+		int tot_indices = count;
+#endif
 		while (count--)
 		{
 			s = *(float *) gl_cmd_buffer++;
 			t = *(float *) gl_cmd_buffer++;
 			pindex = *gl_cmd_buffer++;
-
+#ifdef __vita__
+			gTexCoordBuffer[0] = s;
+			gTexCoordBuffer[1] = t;
+			gTexCoordBuffer += 2;
+#else
 			pglTexCoord2f(s, t);
-
+#endif
 			if (!nextframe || pol == 0.0f)
 			{
 #ifndef __vita__
 				pglNormal3f(frame->vertices[pindex].normal[0],
 				            frame->vertices[pindex].normal[1],
 				            frame->vertices[pindex].normal[2]);
-#endif
 				pglVertex3f(frame->vertices[pindex].vertex[0]*scalex/2.0f,
 				            frame->vertices[pindex].vertex[1]*scaley/2.0f,
 				            frame->vertices[pindex].vertex[2]*scalez/2.0f);
+#else
+				gVertexBuffer[0] = frame->vertices[pindex].vertex[0]*scalex/2.0f;
+				gVertexBuffer[1] = frame->vertices[pindex].vertex[1]*scaley/2.0f;
+				gVertexBuffer[2] = frame->vertices[pindex].vertex[2]*scalez/2.0f;
+				gVertexBuffer += 3;
+#endif
 			}
 			else
 			{
@@ -2002,14 +2073,26 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 				pglNormal3f((nx1 + pol * (nx2 - nx1)),
 				            (ny1 + pol * (ny2 - ny1)),
 				            (nz1 + pol * (nz2 - nz1)));
-#endif
 				pglVertex3f((px1 + pol * (px2 - px1)),
 				            (py1 + pol * (py2 - py1)),
 				            (pz1 + pol * (pz2 - pz1)));
+#else
+				gVertexBuffer[0] = (px1 + pol * (px2 - px1));
+				gVertexBuffer[1] = (py1 + pol * (py2 - py1));
+				gVertexBuffer[2] = (pz1 + pol * (pz2 - pz1));
+				gVertexBuffer += 3;
+#endif
 			}
 		}
 
+#ifdef __vita__
+		vglVertexPointerMapped(vertices);
+		vglTexCoordPointerMapped(texcoords);
+		vglDrawObjects(primitive, tot_indices, GL_TRUE);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+#else
 		pglEnd();
+#endif
 
 		val = *gl_cmd_buffer++;
 	}
@@ -2175,6 +2258,7 @@ EXPORT void HWRAPI(PostImgRedraw) (float points[SCREENVERTS][SCREENVERTS][2])
 // Create Screen to fade from
 EXPORT void HWRAPI(StartScreenWipe) (void)
 {
+	return;
 	INT32 texsize = 2048;
 
 	// Use a power of two texture, dammit
@@ -2204,6 +2288,7 @@ EXPORT void HWRAPI(StartScreenWipe) (void)
 // Create Screen to fade to
 EXPORT void HWRAPI(EndScreenWipe)(void)
 {
+	return;
 	INT32 texsize = 2048;
 
 	// Use a power of two texture, dammit
@@ -2234,6 +2319,7 @@ EXPORT void HWRAPI(EndScreenWipe)(void)
 // Draw the last scene under the intermission
 EXPORT void HWRAPI(DrawIntermissionBG)(void)
 {
+	return;
 	float xfix, yfix;
 	INT32 texsize = 2048;
 
@@ -2275,6 +2361,7 @@ EXPORT void HWRAPI(DrawIntermissionBG)(void)
 // Do screen fades!
 EXPORT void HWRAPI(DoScreenWipe)(float alpha)
 {
+	return;
 	INT32 texsize = 2048;
 	float xfix, yfix;
 
@@ -2396,6 +2483,7 @@ EXPORT void HWRAPI(DoScreenWipe)(float alpha)
 // Create a texture from the screen.
 EXPORT void HWRAPI(MakeScreenTexture) (void)
 {
+	return;
 	INT32 texsize = 2048;
 
 	// Use a power of two texture, dammit
@@ -2424,6 +2512,7 @@ EXPORT void HWRAPI(MakeScreenTexture) (void)
 
 EXPORT void HWRAPI(MakeScreenFinalTexture) (void)
 {
+	return;
 	INT32 texsize = 2048;
 
 	// Use a power of two texture, dammit
@@ -2453,6 +2542,7 @@ EXPORT void HWRAPI(MakeScreenFinalTexture) (void)
 
 EXPORT void HWRAPI(DrawScreenFinalTexture)(int width, int height)
 {
+	return;
 	float xfix, yfix;
 	INT32 texsize = 2048;
 
