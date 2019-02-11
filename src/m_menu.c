@@ -2091,7 +2091,9 @@ boolean M_Responder(event_t *ev)
 		switch (ch)
 		{
 			case KEY_MOUSE1:
+#ifndef __vita__
 			case KEY_JOY1:
+#endif
 			case KEY_JOY1 + 2:
 				ch = KEY_ENTER;
 				break;
@@ -2130,6 +2132,22 @@ boolean M_Responder(event_t *ev)
 				ch = KEY_LEFTARROW;
 				break;
 			case KEY_JOY1 + 14:
+				ch = KEY_RIGHTARROW;
+				break;
+#elif defined(__vita__)
+			case KEY_JOY1:
+				ch = KEY_ESCAPE;
+				break;
+			case KEY_JOY1 + 8:
+				ch = KEY_UPARROW;
+				break;
+			case KEY_JOY1 + 6:
+				ch = KEY_DOWNARROW;
+				break;
+			case KEY_JOY1 + 7:
+				ch = KEY_LEFTARROW;
+				break;
+			case KEY_JOY1 + 9:
 				ch = KEY_RIGHTARROW;
 				break;
 #endif

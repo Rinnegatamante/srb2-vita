@@ -334,8 +334,12 @@ static keyname_t keynames[] =
 	{KEY_JOY1+3, "SQUARE"  },
 	{KEY_JOY1+4, "LTRIGGER"},
 	{KEY_JOY1+5, "RTRIGGER"},
-	{KEY_JOY1+6, "SELECT"  },
-	{KEY_JOY1+7, "START"   },
+	{KEY_JOY1+6, "DOWNARROW"},
+	{KEY_JOY1+7, "LEFTARROW"},
+	{KEY_JOY1+8, "UPARROW" },
+	{KEY_JOY1+9, "RIGHTARROW"},
+	{KEY_JOY1+10,"SELECT"  },
+	{KEY_JOY1+11,"START"   },
 #define NOMOREJOYBTN_1S
 #elif defined (GP2X)
 	{KEY_JOY1+0, "JOYA"},
@@ -468,17 +472,18 @@ static keyname_t keynames[] =
 	{KEY_JOY1+30, "JOY31"},
 	{KEY_JOY1+31, "JOY32"},
 #endif
+#ifndef __vita__
 	// the DOS version uses Allegro's joystick support
 	{KEY_HAT1+0, "HATUP"},
 	{KEY_HAT1+1, "HATDOWN"},
 	{KEY_HAT1+2, "HATLEFT"},
 	{KEY_HAT1+3, "HATRIGHT"},
-#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__) && !defined(__vita__)
+#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__)
 	{KEY_HAT1+4, "HATUP2"},
 	{KEY_HAT1+5, "HATDOWN2"},
 	{KEY_HAT1+6, "HATLEFT2"},
 	{KEY_HAT1+7, "HATRIGHT2"},
-#ifndef _arch_dreamcast
+#if !defined (_arch_dreamcast)
 	{KEY_HAT1+8, "HATUP3"},
 	{KEY_HAT1+9, "HATDOWN3"},
 	{KEY_HAT1+10, "HATLEFT3"},
@@ -487,6 +492,7 @@ static keyname_t keynames[] =
 	{KEY_HAT1+13, "HATDOWN4"},
 	{KEY_HAT1+14, "HATLEFT4"},
 	{KEY_HAT1+15, "HATRIGHT4"},
+#endif
 #endif
 #endif
 
@@ -552,8 +558,13 @@ static keyname_t keynames[] =
 	{KEY_DBLJOY1+3, "DBLSQUARE"  },
 	{KEY_DBLJOY1+4, "DBLLTRIGGER"},
 	{KEY_DBLJOY1+5, "DBLRTRIGGER"},
-	{KEY_DBLJOY1+6, "DBLSELECT"  },
-	{KEY_DBLJOY1+7, "DBLSTART"   },
+	{KEY_DBLJOY1+6, "DBLDOWNARROW"},
+	{KEY_DBLJOY1+7, "DBLLEFTARROW"},
+	{KEY_DBLJOY1+8, "DBLUPARROW" },
+	{KEY_DBLJOY1+9, "DBLRIGHTARROW"},
+	{KEY_DBLJOY1+10,"DBLSELECT"  },
+	{KEY_DBLJOY1+11,"DBLSTART"   },
+#define NOMOREJOYBTN_1DBL
 #elif defined (GP2X)
 	{KEY_DBLJOY1+0, "DBLJOYA"},
 	{KEY_DBLJOY1+1, "DBLJOYY"},
@@ -685,16 +696,17 @@ static keyname_t keynames[] =
 	{KEY_DBLJOY1+30, "DBLJOY31"},
 	{KEY_DBLJOY1+31, "DBLJOY32"},
 #endif
+#ifndef __vita__
 	{KEY_DBLHAT1+0, "DBLHATUP"},
 	{KEY_DBLHAT1+1, "DBLHATDOWN"},
 	{KEY_DBLHAT1+2, "DBLHATLEFT"},
 	{KEY_DBLHAT1+3, "DBLHATRIGHT"},
-#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__) && !defined(__vita__)
+#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__)
 	{KEY_DBLHAT1+4, "DBLHATUP2"},
 	{KEY_DBLHAT1+5, "DBLHATDOWN2"},
 	{KEY_DBLHAT1+6, "DBLHATLEFT2"},
 	{KEY_DBLHAT1+7, "DBLHATRIGHT2"},
-#ifndef _arch_dreamcast
+#if !defined(_arch_dreamcast)
 	{KEY_DBLHAT1+8, "DBLHATUP3"},
 	{KEY_DBLHAT1+9, "DBLHATDOWN3"},
 	{KEY_DBLHAT1+10, "DBLHATLEFT3"},
@@ -705,7 +717,7 @@ static keyname_t keynames[] =
 	{KEY_DBLHAT1+15, "DBLHATRIGHT4"},
 #endif
 #endif
-
+#endif
 #ifdef DC
 	{KEY_2JOY1+0, "SEC_JOYC"},
 	{KEY_2JOY1+1, "SEC_JOYB"},
@@ -748,8 +760,12 @@ static keyname_t keynames[] =
 	{KEY_2JOY1+3, "SEC_SQUARE"  },
 	{KEY_2JOY1+4, "SEC_LTRIGGER"},
 	{KEY_2JOY1+5, "SEC_RTRIGGER"},
-	{KEY_2JOY1+6, "SEC_SELECT"  },
-	{KEY_2JOY1+7, "SEC_START"   },
+	{KEY_2JOY1+6, "SEC_DOWNARROW"},
+	{KEY_2JOY1+7, "SEC_LEFTARROW"},
+	{KEY_2JOY1+8, "SEC_UPARROW" },
+	{KEY_2JOY1+9, "SEC_RIGHTARROW"},
+	{KEY_2JOY1+10, "SEC_SELECT"  },
+	{KEY_2JOY1+11, "SEC_START"   },
 #define NOMOREJOYBTN_2S
 #elif defined (WMINPUT)
 	{KEY_2JOY1+0,  "SEC_JOYB"},
@@ -844,17 +860,18 @@ static keyname_t keynames[] =
 	{KEY_2JOY1+30, "SEC_JOY31"},
 	{KEY_2JOY1+31, "SEC_JOY32"},
 #endif
+#ifndef __vita__
 	// the DOS version uses Allegro's joystick support
 	{KEY_2HAT1+0,  "SEC_HATUP"},
 	{KEY_2HAT1+1,  "SEC_HATDOWN"},
 	{KEY_2HAT1+2,  "SEC_HATLEFT"},
 	{KEY_2HAT1+3,  "SEC_HATRIGHT"},
-#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__) && !defined(__vita__)
+#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__)
 	{KEY_2HAT1+4, "SEC_HATUP2"},
 	{KEY_2HAT1+5, "SEC_HATDOWN2"},
 	{KEY_2HAT1+6, "SEC_HATLEFT2"},
 	{KEY_2HAT1+7, "SEC_HATRIGHT2"},
-#ifndef _arch_dreamcast
+#if !defined(_arch_dreamcast)
 	{KEY_2HAT1+8, "SEC_HATUP3"},
 	{KEY_2HAT1+9, "SEC_HATDOWN3"},
 	{KEY_2HAT1+10, "SEC_HATLEFT3"},
@@ -863,6 +880,7 @@ static keyname_t keynames[] =
 	{KEY_2HAT1+13, "SEC_HATDOWN4"},
 	{KEY_2HAT1+14, "SEC_HATLEFT4"},
 	{KEY_2HAT1+15, "SEC_HATRIGHT4"},
+#endif
 #endif
 #endif
 
@@ -908,8 +926,12 @@ static keyname_t keynames[] =
 	{KEY_DBL2JOY1+3, "DBLSEC_SQUARE"  },
 	{KEY_DBL2JOY1+4, "DBLSEC_LTRIGGER"},
 	{KEY_DBL2JOY1+5, "DBLSEC_RTRIGGER"},
-	{KEY_DBL2JOY1+6, "DBLSEC_SELECT"  },
-	{KEY_DBL2JOY1+7, "DBLSEC_START"   },
+	{KEY_DBL2JOY1+6, "DBLSEC_DOWNARROW"},
+	{KEY_DBL2JOY1+7, "DBLSEC_LEFTARROW"},
+	{KEY_DBL2JOY1+8, "DBLSEC_UPARROW" },
+	{KEY_DBL2JOY1+9, "DBLSEC_RIGHTARROW"},
+	{KEY_DBL2JOY1+10,"DBLSEC_SELECT"  },
+	{KEY_DBL2JOY1+11,"DBLSEC_START"   },
 #define NOMOREJOYBTN_2DBL
 #elif defined (WMINPUT)
 	{KEY_DBL2JOY1+0,  "DBLSEC_JOYB"},
@@ -1003,16 +1025,17 @@ static keyname_t keynames[] =
 	{KEY_DBL2JOY1+30, "DBLSEC_JOY31"},
 	{KEY_DBL2JOY1+31, "DBLSEC_JOY32"},
 #endif
+#ifndef __vita__
 	{KEY_DBL2HAT1+0, "DBLSEC_HATUP"},
 	{KEY_DBL2HAT1+1, "DBLSEC_HATDOWN"},
 	{KEY_DBL2HAT1+2, "DBLSEC_HATLEFT"},
 	{KEY_DBL2HAT1+3, "DBLSEC_HATRIGHT"},
-#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__) && !defined(__vita__)
+#if !defined (_XBOX) && !defined (_PSP) && !defined (_WII) && !defined (__SWITCH__)
 	{KEY_DBL2HAT1+4, "DBLSEC_HATUP2"},
 	{KEY_DBL2HAT1+5, "DBLSEC_HATDOWN2"},
 	{KEY_DBL2HAT1+6, "DBLSEC_HATLEFT2"},
 	{KEY_DBL2HAT1+7, "DBLSEC_HATRIGHT2"},
-#ifndef _arch_dreamcast
+#if !defined(_arch_dreamcast)
 	{KEY_DBL2HAT1+8, "DBLSEC_HATUP3"},
 	{KEY_DBL2HAT1+9, "DBLSEC_HATDOWN3"},
 	{KEY_DBL2HAT1+10, "DBLSEC_HATLEFT3"},
@@ -1023,7 +1046,7 @@ static keyname_t keynames[] =
 	{KEY_DBL2HAT1+15, "DBLSEC_HATRIGHT4"},
 #endif
 #endif
-
+#endif
 };
 
 static const char *gamecontrolname[num_gamecontrols] =
@@ -1201,17 +1224,17 @@ void G_Controldefault(void)
 #elif defined (__vita__)
 void G_Controldefault(void)
 {
-	gamecontrol[gc_forward    ][0] = KEY_HAT1+0; // Up
-	gamecontrol[gc_backward   ][0] = KEY_HAT1+1; // Down
-	gamecontrol[gc_turnleft   ][0] = KEY_HAT1+2; // Left
-	gamecontrol[gc_turnright  ][0] = KEY_HAT1+3; // Right
+	gamecontrol[gc_forward    ][0] = KEY_JOY1+8; // Up
+	gamecontrol[gc_backward   ][0] = KEY_JOY1+6; // Down
+	gamecontrol[gc_turnleft   ][0] = KEY_JOY1+7; // Left
+	gamecontrol[gc_turnright  ][0] = KEY_JOY1+9; // Right
 	gamecontrol[gc_strafeleft ][0] = KEY_JOY1+4; // L
 	gamecontrol[gc_straferight][0] = KEY_JOY1+5; // R
 	gamecontrol[gc_tossflag   ][0] = KEY_JOY1+0; // Triangle
 	gamecontrol[gc_use        ][0] = KEY_JOY1+1; // Circle
-	gamecontrol[gc_camtoggle  ][0] = KEY_JOY1+6; // Select
+	gamecontrol[gc_camtoggle  ][0] = KEY_JOY1+10; // Select
 	gamecontrol[gc_camreset   ][0] = KEY_JOY1+3; // Square
-	gamecontrol[gc_pause      ][0] = KEY_JOY1+8; // Start
+	gamecontrol[gc_pause      ][0] = KEY_JOY1+11; // Start
 	gamecontrol[gc_jump       ][0] = KEY_JOY1+2; // Cross
 }
 #elif defined (GP2X)
