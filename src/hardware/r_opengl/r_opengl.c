@@ -17,6 +17,10 @@
 /// \file
 /// \brief OpenGL API for Sonic Robo Blast 2
 
+#ifdef __vita__
+#include <vitaGL.h>
+#endif
+
 #if defined (_WIN32)
 //#define WIN32_LEAN_AND_MEAN
 #define RPC_NO_WINDOWS_H
@@ -389,8 +393,16 @@ typedef void (APIENTRY * PFNglCopyTexImage2D) (GLenum target, GLint level, GLenu
 static PFNglCopyTexImage2D pglCopyTexImage2D;
 #endif
 /* GLU functions */
+#ifdef __vita__
+GLint PFNgluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data) {
+	pglTexImage2D(target, 0, format, width, height, 0, format, type, data);
+	glGenerateMipmap(target);
+}
+#define pgluBuild2DMipmaps PFNgluBuild2DMipmaps
+#else
 typedef GLint (APIENTRY * PFNgluBuild2DMipmaps) (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
 static PFNgluBuild2DMipmaps pgluBuild2DMipmaps;
+#endif
 
 #ifndef MINI_GL_COMPATIBILITY
 /* 1.3 functions for multitexturing */
@@ -424,7 +436,9 @@ static PFNglMultiTexCoord2f pglMultiTexCoord2f;
 #endif
 
 #ifdef MINI_GL_COMPATIBILITY
+#ifndef __vita__
 #undef GL_CLAMP_TO_EDGE
+#endif
 #undef GL_TEXTURE_MIN_LOD
 #undef GL_TEXTURE_MAX_LOD
 #endif
@@ -696,7 +710,9 @@ void SetStates(void)
 //	DBG_Printf("SetStates()\n");
 
 	// Hurdler: not necessary, is it?
+#ifndef __vita__
 	pglShadeModel(GL_SMOOTH);      // iterate vertice colors
+#endif
 	//pglShadeModel(GL_FLAT);
 
 	pglEnable(GL_TEXTURE_2D);      // two-dimensional texturing
@@ -863,7 +879,7 @@ EXPORT void HWRAPI(ClearMipMapCache) (void)
 EXPORT void HWRAPI(ReadRect) (INT32 x, INT32 y, INT32 width, INT32 height,
                                 INT32 dst_stride, UINT16 * dst_data)
 {
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) || defined(__vita__)
 	(void)x;
 	(void)y;
 	(void)width;
@@ -1033,9 +1049,10 @@ EXPORT void HWRAPI(Draw2DLine) (F2DCoord * v1,
 
 static void Clamp2D(GLenum pname)
 {
-	pglTexParameteri(GL_TEXTURE_2D, pname, GL_CLAMP); // fallback clamp
 #ifdef GL_CLAMP_TO_EDGE
 	pglTexParameteri(GL_TEXTURE_2D, pname, GL_CLAMP_TO_EDGE);
+#else
+	pglTexParameteri(GL_TEXTURE_2D, pname, GL_CLAMP);
 #endif
 }
 
@@ -1523,8 +1540,13 @@ EXPORT void HWRAPI(SetTexture) (FTextureInfo *pTexInfo)
 	switch (pTexInfo->flags)
 	{
 		case 0 :
+#ifdef __vita__
+			pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+#else
 			pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 			pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+#endif
 			break;
 		default:
 			pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -1688,6 +1710,7 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 
 		case HWD_SET_FOG_COLOR:
 		{
+#ifndef __vita__
 			GLfloat fogcolor[4];
 
 			fogcolor[0] = byte2float[((Value>>16)&0xff)];
@@ -1695,15 +1718,20 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 			fogcolor[2] = byte2float[((Value)&0xff)];
 			fogcolor[3] = 0x0;
 			pglFogfv(GL_FOG_COLOR, fogcolor);
+#endif
 			break;
 		}
 		case HWD_SET_FOG_DENSITY:
+#ifndef __vita__
 			pglFogf(GL_FOG_DENSITY, Value*1200/(500*1000000.0f));
+#endif
 			break;
 
 		case HWD_SET_FOG_MODE:
+#ifndef __vita__
 			if (Value)
 			{
+
 				pglEnable(GL_FOG);
 				// experimental code
 				/*
@@ -1725,6 +1753,7 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 			}
 			else
 				pglDisable(GL_FOG);
+#endif
 			break;
 
 		case HWD_SET_POLYGON_SMOOTH:
@@ -1733,7 +1762,7 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 				pglHint(GL_POLYGON_SMOOTH_HINT,GL_NICEST);
 			else
 				pglHint(GL_POLYGON_SMOOTH_HINT,GL_FASTEST);
-#else
+#elif !defined(__vita__)
 			if (Value)
 				pglEnable(GL_POLYGON_SMOOTH);
 			else
@@ -1744,7 +1773,7 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 		case HWD_SET_TEXTUREFILTERMODE:
 			switch (Value)
 			{
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 				case HWD_SET_TEXTUREFILTER_TRILINEAR:
 				case HWD_SET_TEXTUREFILTER_BILINEAR:
 					min_filter = mag_filter = GL_FILTER_BILINEAR;
@@ -1762,12 +1791,14 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 					min_filter = GL_FILTER_BILINEAR;
 					mag_filter = GL_FILTER_NONE;
 					break;
-#elif !defined (MINI_GL_COMPATIBILITY)
+#elif !defined (MINI_GL_COMPATIBILITY) || defined(__vita__)
 				case HWD_SET_TEXTUREFILTER_TRILINEAR:
+#ifndef __vita__
 					min_filter = GL_LINEAR_MIPMAP_LINEAR;
 					mag_filter = GL_LINEAR;
 					MipMap = GL_TRUE;
 					break;
+#endif
 				case HWD_SET_TEXTUREFILTER_BILINEAR:
 					min_filter = mag_filter = GL_LINEAR;
 					MipMap = GL_FALSE;
@@ -1786,11 +1817,13 @@ EXPORT void HWRAPI(SetSpecialState) (hwdspecialstate_t IdState, INT32 Value)
 					mag_filter = GL_NEAREST;
 					MipMap = GL_FALSE;
 					break;
+#ifndef __vita__
 				case HWD_SET_TEXTUREFILTER_MIXED3:
 					min_filter = GL_LINEAR_MIPMAP_LINEAR;
 					mag_filter = GL_NEAREST;
 					MipMap = GL_TRUE;
 					break;
+#endif
 #endif
 				default:
 #ifdef KOS_GL_COMPATIBILITY
@@ -1884,10 +1917,10 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 		pglCullFace(GL_BACK);
 	}
 
-#ifndef KOS_GL_COMPATIBILITY
+#if !defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglLightfv(GL_LIGHT0, GL_POSITION, LightPos);
 #endif
-
+#ifndef __vita__
 	pglShadeModel(GL_SMOOTH);
 	if (color)
 	{
@@ -1897,7 +1930,7 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 		pglMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse);
 #endif
 	}
-
+#endif
 	DrawPolygon(NULL, NULL, 0, PF_Masked|PF_Modulated|PF_Occlude|PF_Clip);
 
 	pglPushMatrix(); // should be the same as glLoadIdentity
@@ -1941,10 +1974,11 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 
 			if (!nextframe || pol == 0.0f)
 			{
+#ifndef __vita__
 				pglNormal3f(frame->vertices[pindex].normal[0],
 				            frame->vertices[pindex].normal[1],
 				            frame->vertices[pindex].normal[2]);
-
+#endif
 				pglVertex3f(frame->vertices[pindex].vertex[0]*scalex/2.0f,
 				            frame->vertices[pindex].vertex[1]*scaley/2.0f,
 				            frame->vertices[pindex].vertex[2]*scalez/2.0f);
@@ -1958,16 +1992,17 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 				float py2 = nextframe->vertices[pindex].vertex[1]*scaley/2.0f;
 				float pz1 = frame->vertices[pindex].vertex[2]*scalez/2.0f;
 				float pz2 = nextframe->vertices[pindex].vertex[2]*scalez/2.0f;
+#ifndef __vita__
 				float nx1 = frame->vertices[pindex].normal[0];
 				float nx2 = nextframe->vertices[pindex].normal[0];
 				float ny1 = frame->vertices[pindex].normal[1];
 				float ny2 = nextframe->vertices[pindex].normal[1];
 				float nz1 = frame->vertices[pindex].normal[2];
 				float nz2 = nextframe->vertices[pindex].normal[2];
-
 				pglNormal3f((nx1 + pol * (nx2 - nx1)),
 				            (ny1 + pol * (ny2 - ny1)),
 				            (nz1 + pol * (nz2 - nz1)));
+#endif
 				pglVertex3f((px1 + pol * (px2 - px1)),
 				            (py1 + pol * (py2 - py1)),
 				            (pz1 + pol * (pz2 - pz1)));
@@ -1979,9 +2014,11 @@ static  void DrawMD2Ex(INT32 *gl_cmd_buffer, md2_frame_t *frame, INT32 duration,
 		val = *gl_cmd_buffer++;
 	}
 	pglPopMatrix(); // should be the same as glLoadIdentity
+#ifndef __vita__
 	if (color)
 		pglDisable(GL_LIGHTING);
 	pglShadeModel(GL_FLAT);
+#endif
 	pglDepthMask(GL_TRUE);
 	pglDisable(GL_CULL_FACE);
 }
@@ -2148,7 +2185,7 @@ EXPORT void HWRAPI(StartScreenWipe) (void)
 
 	// Create screen texture
 	pglBindTexture(GL_TEXTURE_2D, startScreenWipe);
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_FILTER_NONE);
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_FILTER_NONE);
 #else
@@ -2157,7 +2194,7 @@ EXPORT void HWRAPI(StartScreenWipe) (void)
 #endif
 	Clamp2D(GL_TEXTURE_WRAP_S);
 	Clamp2D(GL_TEXTURE_WRAP_T);
-#ifndef KOS_GL_COMPATIBILITY
+#if !defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, 0, texsize, texsize, 0);
 #endif
 
@@ -2177,7 +2214,7 @@ EXPORT void HWRAPI(EndScreenWipe)(void)
 
 	// Create screen texture
 	pglBindTexture(GL_TEXTURE_2D, endScreenWipe);
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_FILTER_NONE);
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_FILTER_NONE);
 #else
@@ -2186,7 +2223,7 @@ EXPORT void HWRAPI(EndScreenWipe)(void)
 #endif
 	Clamp2D(GL_TEXTURE_WRAP_S);
 	Clamp2D(GL_TEXTURE_WRAP_T);
-#ifndef KOS_GL_COMPATIBILITY
+#if !defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, 0, texsize, texsize, 0);
 #endif
 
@@ -2369,7 +2406,7 @@ EXPORT void HWRAPI(MakeScreenTexture) (void)
 
 	// Create screen texture
 	pglBindTexture(GL_TEXTURE_2D, screentexture);
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_FILTER_NONE);
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_FILTER_NONE);
 #else
@@ -2378,7 +2415,7 @@ EXPORT void HWRAPI(MakeScreenTexture) (void)
 #endif
 	Clamp2D(GL_TEXTURE_WRAP_S);
 	Clamp2D(GL_TEXTURE_WRAP_T);
-#ifndef KOS_GL_COMPATIBILITY
+#if !defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, 0, texsize, texsize, 0);
 #endif
 
@@ -2397,7 +2434,7 @@ EXPORT void HWRAPI(MakeScreenFinalTexture) (void)
 
 	// Create screen texture
 	pglBindTexture(GL_TEXTURE_2D, finalScreenTexture);
-#ifdef KOS_GL_COMPATIBILITY
+#if defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_FILTER_NONE);
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_FILTER_NONE);
 #else
@@ -2406,7 +2443,7 @@ EXPORT void HWRAPI(MakeScreenFinalTexture) (void)
 #endif
 	Clamp2D(GL_TEXTURE_WRAP_S);
 	Clamp2D(GL_TEXTURE_WRAP_T);
-#ifndef KOS_GL_COMPATIBILITY
+#if !defined(KOS_GL_COMPATIBILITY) && !defined(__vita__)
 	pglCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, 0, texsize, texsize, 0);
 #endif
 

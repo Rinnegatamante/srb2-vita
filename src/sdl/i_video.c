@@ -91,7 +91,7 @@ static INT32 numVidModes = -1;
 */
 static char vidModeName[33][32]; // allow 33 different modes
 
-rendermode_t rendermode=render_soft;
+rendermode_t rendermode=render_opengl;
 
 boolean highcolor = false;
 
@@ -1509,12 +1509,11 @@ void I_StartupGraphics(void)
 
 	usesdl2soft = M_CheckParm("-softblit");
 	borderlesswindow = M_CheckParm("-borderless");
-	
-#ifdef __vita__
-	// FIXME
-	usesdl2soft = SDL_TRUE;
-#endif
 
+#ifdef FORCE_SW_RENDERER
+	usesdl2soft = SDL_TRUE;
+#endif	
+	
 	//SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY>>1,SDL_DEFAULT_REPEAT_INTERVAL<<2);
 	VID_Command_ModeList_f();
 #ifdef HWRENDER
@@ -1554,6 +1553,9 @@ void I_StartupGraphics(void)
 		if (!HWD.pfnInit(I_Error)) // let load the OpenGL library
 		{
 			rendermode = render_soft;
+		} else {
+			vglInit();
+			vglStartRendering();
 		}
 	}
 #endif

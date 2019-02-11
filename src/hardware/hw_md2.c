@@ -795,7 +795,11 @@ void HWR_InitMD2(void)
 	}
 
 	// read the md2.dat file
+#ifdef __vita__
+	f = fopen("ux0:data/srb2vita/md2.dat", "rt");
+#else
 	f = fopen("md2.dat", "rt");
+#endif
 
 	if (!f)
 	{
@@ -805,7 +809,7 @@ void HWR_InitMD2(void)
 	}
 	while (fscanf(f, "%19s %31s %f %f", name, filename, &scale, &offset) == 4)
 	{
-		if (stricmp(name, "PLAY") == 0)
+		if (strcasecmp(name, "PLAY") == 0)
 		{
 			CONS_Printf("MD2 for sprite PLAY detected in md2.dat, use a player skin instead!\n");
 			continue;
@@ -813,7 +817,7 @@ void HWR_InitMD2(void)
 
 		for (i = 0; i < NUMSPRITES; i++)
 		{
-			if (stricmp(name, sprnames[i]) == 0)
+			if (strcasecmp(name, sprnames[i]) == 0)
 			{
 				//if (stricmp(name, "PLAY") == 0)
 					//continue;
@@ -829,7 +833,7 @@ void HWR_InitMD2(void)
 
 		for (s = 0; s < MAXSKINS; s++)
 		{
-			if (stricmp(name, skins[s].name) == 0)
+			if (strcasecmp(name, skins[s].name) == 0)
 			{
 				//CONS_Printf("  Found: %s %s %f %f\n", name, filename, scale, offset);
 				md2_playermodels[s].skin = s;
@@ -849,7 +853,7 @@ md2found:
 	fclose(f);
 }
 
-void HWR_AddPlayerMD2(int skin) // For MD2's that were added after startup
+void HWR_AddPlayerMD2(INT32 skin) // For MD2's that were added after startup
 {
 	FILE *f;
 	char name[18], filename[32];
@@ -861,7 +865,11 @@ void HWR_AddPlayerMD2(int skin) // For MD2's that were added after startup
 	CONS_Printf("AddPlayerMD2()...\n");
 
 	// read the md2.dat file
+#ifdef __vita__
+	f = fopen("ux0:data/srb2vita/md2.dat", "rt");
+#else
 	f = fopen("md2.dat", "rt");
+#endif
 
 	if (!f)
 	{
@@ -873,7 +881,7 @@ void HWR_AddPlayerMD2(int skin) // For MD2's that were added after startup
 	// Check for any MD2s that match the names of player skins!
 	while (fscanf(f, "%19s %31s %f %f", name, filename, &scale, &offset) == 4)
 	{
-		if (stricmp(name, skins[skin].name) == 0)
+		if (strcasecmp(name, skins[skin].name) == 0)
 		{
 			md2_playermodels[skin].skin = skin;
 			md2_playermodels[skin].scale = scale;
@@ -906,8 +914,11 @@ void HWR_AddSpriteMD2(size_t spritenum) // For MD2s that were added after startu
 		return;
 
 	// Read the md2.dat file
+#ifdef __vita__
+	f = fopen("ux0:data/srb2vita/md2.dat", "rt");
+#else
 	f = fopen("md2.dat", "rt");
-
+#endif
 	if (!f)
 	{
 		CONS_Printf("Error while loading md2.dat\n");
@@ -918,7 +929,7 @@ void HWR_AddSpriteMD2(size_t spritenum) // For MD2s that were added after startu
 	// Check for any MD2s that match the names of player skins!
 	while (fscanf(f, "%19s %31s %f %f", name, filename, &scale, &offset) == 4)
 	{
-		if (stricmp(name, sprnames[spritenum]) == 0)
+		if (strcasecmp(name, sprnames[spritenum]) == 0)
 		{
 			md2_models[spritenum].scale = scale;
 			md2_models[spritenum].offset = offset;

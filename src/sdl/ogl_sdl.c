@@ -154,8 +154,11 @@ boolean OglSdlSurface(INT32 w, INT32 h)
 	INT32 cbpp;
 	const GLvoid *glvendor = NULL, *glrenderer = NULL, *glversion = NULL;
 
+#ifndef __vita__
 	cbpp = cv_scr_depth.value < 16 ? 16 : cv_scr_depth.value;
-
+#else
+	cbpp = 32;
+#endif
 	glvendor = pglGetString(GL_VENDOR);
 	// Get info and extensions.
 	//BP: why don't we make it earlier ?
@@ -170,24 +173,31 @@ boolean OglSdlSurface(INT32 w, INT32 h)
 	DBG_Printf("Extensions : %s\n", gl_extensions);
 	oglflags = 0;
 
+#ifndef __vita__
 	if (isExtAvailable("GL_EXT_texture_filter_anisotropic", gl_extensions))
 		pglGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maximumAnisotropy);
 	else
+#endif
 		maximumAnisotropy = 1;
 
 	SetupGLFunc13();
 
 	granisotropicmode_cons_t[1].value = maximumAnisotropy;
 
+#ifndef __vita__
 	SDL_GL_SetSwapInterval(cv_vidwait.value ? 1 : 0);
+#endif
 
 	SetModelView(w, h);
 	SetStates();
 	pglClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
 	HWR_Startup();
+#ifndef __vita__
 	textureformatGL = cbpp > 16 ? GL_RGBA : GL_RGB5_A1;
-
+#else
+	textureformatGL = GL_RGBA;
+#endif
 	return true;
 }
 
@@ -199,6 +209,7 @@ boolean OglSdlSurface(INT32 w, INT32 h)
 */
 void OglSdlFinishUpdate(boolean waitvbl)
 {
+#ifndef __vita__
 	static boolean oldwaitvbl = false;
 	int sdlw, sdlh;
 	if (oldwaitvbl != waitvbl)
@@ -209,11 +220,16 @@ void OglSdlFinishUpdate(boolean waitvbl)
 	oldwaitvbl = waitvbl;
 
 	SDL_GetWindowSize(window, &sdlw, &sdlh);
-
+#endif
+#ifndef __vita__
 	HWR_MakeScreenFinalTexture();
+	HWR_DrawScreenFinalTexture(960, 544);
 	HWR_DrawScreenFinalTexture(sdlw, sdlh);
 	SDL_GL_SwapWindow(window);
-
+#else
+	vglStopRendering();
+	vglStartRendering();
+#endif
 	SetModelView(realwidth, realheight);
 	SetStates();
 }

@@ -27,7 +27,12 @@
 #pragma warning(disable : 4214 4244)
 #endif
 
+#ifdef __vita__
+#include <vitasdk.h>
+#include <vitaGL.h>
+#else
 #include "SDL_opengl.h" //Alam_GBC: Simple, yes?
+#endif
 
 #ifdef _MSC_VER
 #pragma warning(default : 4214 4244)
