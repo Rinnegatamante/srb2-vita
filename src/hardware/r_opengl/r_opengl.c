@@ -2213,6 +2213,56 @@ EXPORT void HWRAPI(PostImgRedraw) (float points[SCREENVERTS][SCREENVERTS][2])
 
 	pglDisable(GL_DEPTH_TEST);
 	pglDisable(GL_BLEND);
+#ifdef __vita__
+	pglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	gVertexBuffer[0] = gVertexBuffer[1] = gVertexBuffer[3] = gVertexBuffer[7]  = -16.0f;
+	gVertexBuffer[4] = gVertexBuffer[6] = gVertexBuffer[9] = gVertexBuffer[10] = -16.0f;
+	gVertexBuffer[2] = gVertexBuffer[5] = gVertexBuffer[8] = gVertexBuffer[11] =   6.0f;
+	vglVertexPointerMapped(gVertexBuffer);
+	vglDrawObjects(GL_TRIANGLE_STRIP, 4, GL_TRUE);
+	gVertexBuffer += 12;
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	
+	float *vertices = gVertexBuffer;
+	float *texcoords = gTexCoordBuffer;
+	
+	for(x=0;x<SCREENVERTS-1;x++)
+	{
+		for(y=0;y<SCREENVERTS-1;y++)
+		{
+			// Used for texture coordinates
+			// Annoying magic numbers to scale the square texture to
+			// a non-square screen..
+			float_x = (float)(x/(xfix));
+			float_y = (float)(y/(yfix));
+			float_nextx = (float)(x+1)/(xfix);
+			float_nexty = (float)(y+1)/(yfix);
+
+			gTexCoordBuffer[0] = gTexCoordBuffer[2] = float_x;
+			gTexCoordBuffer[1] = gTexCoordBuffer[5] = float_y;
+			gTexCoordBuffer[3] = gTexCoordBuffer[7] = float_nexty;
+			gTexCoordBuffer[4] = gTexCoordBuffer[6] = float_nextx;
+			
+			gVertexBuffer[0]  = points[x][y][0];
+			gVertexBuffer[1]  = points[x][y][1];
+			gVertexBuffer[3]  = points[x][y+1][0];
+			gVertexBuffer[4]  = points[x][y+1][1];
+			gVertexBuffer[6]  = points[x+1][y][0];
+			gVertexBuffer[7]  = points[x+1][y][1];
+			gVertexBuffer[9]  = points[x+1][y+1][0];
+			gVertexBuffer[10] = points[x+1][y+1][1];
+			gVertexBuffer[2] = gVertexBuffer[5] = gVertexBuffer[8] = gVertexBuffer[11] =   4.4f;
+			
+			vglVertexPointerMapped(gVertexBuffer);
+			vglTexCoordPointerMapped(gTexCoordBuffer);
+			vglDrawObjects(GL_TRIANGLE_STRIP, 4, GL_TRUE);
+			gVertexBuffer += 12;
+			gTexCoordBuffer += 8;
+
+		}
+	}
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+#else
 	pglBegin(GL_QUADS);
 
 		// Draw a black square behind the screen texture,
@@ -2220,8 +2270,8 @@ EXPORT void HWRAPI(PostImgRedraw) (float points[SCREENVERTS][SCREENVERTS][2])
 		pglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		pglVertex3f(-16.0f, -16.0f, 6.0f);
 		pglVertex3f(-16.0f, 16.0f, 6.0f);
-		pglVertex3f(16.0f, 16.0f, 6.0f);
 		pglVertex3f(16.0f, -16.0f, 6.0f);
+		pglVertex3f(16.0f, 16.0f, 6.0f);
 
 		for(x=0;x<SCREENVERTS-1;x++)
 		{
@@ -2250,6 +2300,7 @@ EXPORT void HWRAPI(PostImgRedraw) (float points[SCREENVERTS][SCREENVERTS][2])
 			}
 		}
 	pglEnd();
+#endif
 	pglEnable(GL_DEPTH_TEST);
 	pglEnable(GL_BLEND);
 }
